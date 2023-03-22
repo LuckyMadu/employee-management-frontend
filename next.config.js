@@ -5,7 +5,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['mdbootstrap.com'],
+    domains: ['randomuser.me'],
   },
 }
 
