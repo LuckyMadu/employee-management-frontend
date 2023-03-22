@@ -1,12 +1,13 @@
-import { Navbar, EmployeeCard } from "@/components/organisms";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      {/* Header */}
-      <Navbar />
-      {/* Employee card */}
-      <EmployeeCard />
-    </>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/employee/list");
+  }, []);
+  return <></>;
 }
