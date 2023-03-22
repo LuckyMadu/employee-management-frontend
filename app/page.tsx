@@ -1,5 +1,4 @@
-import Navbar from "@/components/organisms/Navbar";
-import Card from "@/components/organisms/Card";
+import { Navbar, EmployeeCard } from "@/components/organisms";
 
 export default function Home() {
   return (
@@ -7,7 +6,7 @@ export default function Home() {
       {/* Header */}
       <Navbar />
       {/* Employee card */}
-      <Card />
+      <EmployeeCard />
     </>
   );
 }

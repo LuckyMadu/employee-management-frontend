@@ -1,10 +1,9 @@
-import { Button } from "@/components/atoms";
-import { Image } from "@/components/atoms";
-import CardBody from "@/components/molecules/CardBody";
+import { Button, Image } from "@/components/atoms";
+import { EmployeeCardBody } from "@/components/molecules";
 import { COLORS } from "@/lib/constants/colors";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
-const Card = () => {
+export const EmployeeCard = () => {
   return (
     <div className="flex m-6">
       <div className="rounded-lg shadow-lg bg-white max-w-sm">
@@ -13,7 +12,7 @@ const Card = () => {
           alt="profile image"
         />
         <div className="p-3">
-          <CardBody />
+          <EmployeeCardBody />
           <div className="flex items-center justify-end mt-2">
             <Button>Add Employee</Button>
             <RiDeleteBin5Fill size={26} color={COLORS.RED} />
@@ -23,5 +22,3 @@ const Card = () => {
     </div>
   );
 };
-
-export default Card;

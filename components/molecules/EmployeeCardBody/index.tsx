@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const CardBody: FC = () => {
+export const EmployeeCardBody: FC = () => {
   return (
     <div className="">
       <dl className="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
@@ -24,5 +24,3 @@ const CardBody: FC = () => {
     </div>
   );
 };
-
-export default CardBody;
