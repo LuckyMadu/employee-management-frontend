@@ -34,7 +34,7 @@ const EmployeeList: FC = () => {
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 gap-6">
             {memoizedEmployees?.map((employee) => (
               <EmployeeCard key={employee._id} item={employee} />
             ))}

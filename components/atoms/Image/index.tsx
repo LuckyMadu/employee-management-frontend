@@ -8,12 +8,6 @@ interface CommonImageProps {
 
 export const CommonImage: FC<CommonImageProps> = ({ src, alt }) => {
   return (
-    <Image
-      className="rounded-t-lg"
-      width="300"
-      height="200"
-      src={src}
-      alt={alt}
-    />
+    <Image className="rounded-xl" width="150" height="80" src={src} alt={alt} />
   );
 };
