@@ -31,11 +31,9 @@ const AddEmployee: FC = () => {
   };
   return (
     <>
-      <h1 className="text-2xl text-center uppercase font-semibold mt-4">
-        Add Employee
-      </h1>
+      <h1 className="text-2xl text-center uppercase mt-4 ">Edit Employee</h1>
       <div className="flex justify-center items-center min-h-screen">
-        <div className="w-full max-w-2xl bg-white shadow-md rounded px-8 pb-8 mb-4 pt-4">
+        <div className="w-full max-w-2xl bg-white shadow-md rounded px-8 pb-8 mb-4">
           <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-wrap -mx-3 mb-6">

@@ -1,8 +1,11 @@
+"use client";
+
 import { FC } from "react";
 import { Image } from "@/components/atoms";
 import { COLORS } from "@/lib/constants/colors";
 import { IEmployeeProps } from "@/types";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
+import Link from "next/link";
 
 export const EmployeeCard: FC<IEmployeeProps> = ({ item }) => {
   return (
@@ -28,7 +31,10 @@ export const EmployeeCard: FC<IEmployeeProps> = ({ item }) => {
           <dd className="font-semibold">{item.number}</dd>
         </div>
         <div className="card-actions justify-end">
-          <RiEditBoxLine size={26} color={COLORS.RED} />
+          <Link href="/employee/edit">
+            <RiEditBoxLine size={26} color={COLORS.RED} />
+          </Link>
+
           <RiDeleteBin5Fill size={26} color={COLORS.RED} />
         </div>
       </div>
