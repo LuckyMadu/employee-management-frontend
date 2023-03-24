@@ -9,6 +9,9 @@ import { Dropdown, Input } from "@/components/atoms";
 type FormValues = {
   firstName: string;
   lastName: string;
+  email: string;
+  phone: string;
+  gender: string;
 };
 
 const schema = yup.object().shape({

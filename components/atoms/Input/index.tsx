@@ -23,6 +23,8 @@ export const Input = ({ name, label, register, ...rest }: InputProps) => {
     formState: { errors },
   } = useFormContext<FormData>();
 
+  console.log("errors-------------------", errors);
+
   return (
     <div>
       <label

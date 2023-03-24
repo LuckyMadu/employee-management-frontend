@@ -5,6 +5,7 @@ import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Dropdown, Input } from "@/components/atoms";
+import { GENDER } from "@/lib/constants";
 
 type FormValues = {
   firstName: string;
@@ -20,12 +21,7 @@ const schema = yup.object().shape({
 });
 
 const AddEmployee: FC = () => {
-  const methods = useForm();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>({
+  const methods = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
 
@@ -41,7 +37,7 @@ const AddEmployee: FC = () => {
       <div className="flex justify-center items-center min-h-screen">
         <div className="w-full max-w-2xl bg-white shadow-md rounded px-8 pb-8 mb-4 pt-4">
           <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <Input
@@ -49,7 +45,7 @@ const AddEmployee: FC = () => {
                     label="First Name"
                     type="text"
                     placeholder="Lahiru"
-                    register={register}
+                    register={methods.register}
                   />
                 </div>
                 <div className="w-full md:w-1/2 px-3">
@@ -58,7 +54,7 @@ const AddEmployee: FC = () => {
                     label="Last Name"
                     type="text"
                     placeholder="Amaratunga"
-                    register={register}
+                    register={methods.register}
                   />
                 </div>
               </div>
@@ -69,7 +65,7 @@ const AddEmployee: FC = () => {
                     label="Email"
                     type="email"
                     placeholder="lahirua@swivelgroup.com.au"
-                    register={register}
+                    register={methods.register}
                   />
                 </div>
               </div>
@@ -80,24 +76,15 @@ const AddEmployee: FC = () => {
                     label="Phone Number"
                     type="number"
                     placeholder="+94 712 130 466"
-                    register={register}
+                    register={methods.register}
                   />
                 </div>
                 <div className="w-full md:w-1/2 px-3">
                   <Dropdown
                     name="gender"
                     label="Gender"
-                    register={register}
-                    options={[
-                      {
-                        label: "Male",
-                        value: "M",
-                      },
-                      {
-                        label: "Female",
-                        value: "F",
-                      },
-                    ]}
+                    register={methods.register}
+                    options={GENDER}
                   />
                 </div>
               </div>

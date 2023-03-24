@@ -25,8 +25,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
   register,
   options,
 }) => {
-  console.log({ name, label, options });
-
   return (
     <>
       {label && (
