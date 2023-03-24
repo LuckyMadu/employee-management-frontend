@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormContext } from "react-hook-form";
+import { useFormContext, UseFormRegister } from "react-hook-form";
 
 interface FormData {
   firstName: string;
@@ -12,12 +12,14 @@ interface FormData {
 interface InputProps {
   name: keyof FormData;
   label: string;
-  [key: string]: unknown;
+  type?: string;
+  placeholder?: string;
+  register: UseFormRegister<FormData>;
 }
 
-export const Input = ({ name, label, ...rest }: InputProps) => {
+export const Input = ({ name, label, register, ...rest }: InputProps) => {
+  console.log({ name, label });
   const {
-    register,
     formState: { errors },
   } = useFormContext<FormData>();
 

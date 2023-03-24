@@ -9,6 +9,8 @@ import { Dropdown, Input } from "@/components/atoms";
 type FormValues = {
   firstName: string;
   lastName: string;
+  email: string;
+  phone: string;
 };
 
 const schema = yup.object().shape({
@@ -27,6 +29,7 @@ const AddEmployee: FC = () => {
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
+    console.log("calledd--------------------");
     console.log(data);
   };
   return (
@@ -45,6 +48,7 @@ const AddEmployee: FC = () => {
                     label="First Name"
                     type="text"
                     placeholder="Lahiru"
+                    register={register}
                   />
                 </div>
                 <div className="w-full md:w-1/2 px-3">
@@ -53,6 +57,7 @@ const AddEmployee: FC = () => {
                     label="Last Name"
                     type="text"
                     placeholder="Amaratunga"
+                    register={register}
                   />
                 </div>
               </div>
@@ -63,6 +68,7 @@ const AddEmployee: FC = () => {
                     label="Email"
                     type="email"
                     placeholder="lahirua@swivelgroup.com.au"
+                    register={register}
                   />
                 </div>
               </div>
@@ -73,12 +79,14 @@ const AddEmployee: FC = () => {
                     label="Phone Number"
                     type="number"
                     placeholder="+94 712 130 466"
+                    register={register}
                   />
                 </div>
                 <div className="w-full md:w-1/2 px-3">
                   <Dropdown
                     name="gender"
                     label="Gender"
+                    register={register}
                     options={[
                       {
                         label: "Male",
