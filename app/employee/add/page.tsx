@@ -11,6 +11,7 @@ type FormValues = {
   lastName: string;
   email: string;
   phone: string;
+  gender: string;
 };
 
 const schema = yup.object().shape({

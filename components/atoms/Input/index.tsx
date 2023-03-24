@@ -7,6 +7,7 @@ interface FormData {
   lastName: string;
   email: string;
   phone: string;
+  gender: string;
 }
 
 interface InputProps {
@@ -18,7 +19,6 @@ interface InputProps {
 }
 
 export const Input = ({ name, label, register, ...rest }: InputProps) => {
-  console.log({ name, label });
   const {
     formState: { errors },
   } = useFormContext<FormData>();

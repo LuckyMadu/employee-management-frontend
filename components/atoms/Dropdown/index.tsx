@@ -1,29 +1,32 @@
 "use client";
 
 import { useFormContext, UseFormRegister } from "react-hook-form";
-
 interface DropdownOption {
   label: string;
   value: string;
 }
-
 interface FormData {
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
+  gender: string;
 }
-
 interface DropdownProps {
-  name: string;
+  name: keyof FormData;
   options: DropdownOption[];
   label?: string;
   register: UseFormRegister<FormData>;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ name, options, label }) => {
-  const { register } = useFormContext();
-  const { onChange, ...registerProps } = register(name);
+export const Dropdown: React.FC<DropdownProps> = ({
+  name,
+  label,
+  register,
+  options,
+}) => {
+  console.log({ name, label, options });
+
   return (
     <>
       {label && (
@@ -38,10 +41,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ name, options, label }) => {
         <select
           className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           id={name}
-          {...registerProps}
-          onChange={(e) =>
-            onChange({ target: { value: e.target.value }, type: "select" })
-          }
+          {...register(name)}
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>
