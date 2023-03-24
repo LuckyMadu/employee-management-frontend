@@ -1,22 +1,10 @@
+import { FC } from "react";
 import { Image } from "@/components/atoms";
 import { COLORS } from "@/lib/constants/colors";
-import { FC } from "react";
+import { IEmployeeProps } from "@/types";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 
-interface IEmployee {
-  first_name: string;
-  last_name: string;
-  email: string;
-  number: string;
-  gender: string;
-  id: string;
-  photo: string;
-}
-interface IEmployeeProps {
-  item: IEmployee;
-}
-
-export const EmployeeCard: FC<IEmployeeProps> = ({ item }: any) => {
+export const EmployeeCard: FC<IEmployeeProps> = ({ item }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>

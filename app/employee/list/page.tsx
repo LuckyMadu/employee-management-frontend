@@ -29,7 +29,6 @@ const EmployeeList: FC = () => {
 
   return (
     <>
-      <Navbar />
       <div className="container mx-auto">
         {isLoading ? (
           <div>Loading...</div>
