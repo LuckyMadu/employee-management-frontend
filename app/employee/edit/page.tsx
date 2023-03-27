@@ -2,94 +2,89 @@
 
 import { FC, useState, useEffect, useMemo } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+// components
 import { Dropdown, Input } from "@/components/atoms";
 
-type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  gender: string;
-};
+// types
+import { FormValues } from "@/types";
+
+// utils
+import { ERROR_MESSAGE, GENDER } from "@/lib/constants";
+
+// styles
+import "@/styles/employee.css";
 
 const schema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
+  firstName: yup.string().required(ERROR_MESSAGE.FIRST_NAME_REQUIRED),
+  lastName: yup.string().required(ERROR_MESSAGE.LAST_NAME_REQUIRED),
 });
 
-const AddEmployee: FC = () => {
-  const methods = useForm();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>({
+const EditEmployee: FC = () => {
+  const methods = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
+    console.log("calledd--------------------");
     console.log(data);
   };
   return (
     <>
-      <h1 className="text-2xl text-center uppercase mt-4 ">Edit Employee</h1>
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="w-full max-w-2xl bg-white shadow-md rounded px-8 pb-8 mb-4">
+      <h1 className="header-title">Edit Employee</h1>
+      <div className="main-container">
+        <div className="form-container">
           <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+              <div className="grid-container">
+                <div className="input-container">
                   <Input
                     name="firstName"
                     label="First Name"
                     type="text"
                     placeholder="Lahiru"
+                    register={methods.register}
                   />
                 </div>
-                <div className="w-full md:w-1/2 px-3">
+                <div className="input-container">
                   <Input
                     name="lastName"
                     label="Last Name"
                     type="text"
                     placeholder="Amaratunga"
+                    register={methods.register}
                   />
                 </div>
               </div>
-              <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="grid-container">
                 <div className="w-full px-3">
                   <Input
                     name="email"
                     label="Email"
                     type="email"
                     placeholder="lahirua@swivelgroup.com.au"
+                    register={methods.register}
                   />
                 </div>
               </div>
-              <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <div className="grid-container">
+                <div className="input-container">
                   <Input
                     name="phone"
                     label="Phone Number"
                     type="number"
                     placeholder="+94 712 130 466"
+                    register={methods.register}
                   />
                 </div>
-                <div className="w-full md:w-1/2 px-3">
+                <div className="input-container">
                   <Dropdown
                     name="gender"
                     label="Gender"
-                    options={[
-                      {
-                        label: "Male",
-                        value: "M",
-                      },
-                      {
-                        label: "Female",
-                        value: "F",
-                      },
-                    ]}
+                    register={methods.register}
+                    options={GENDER}
                   />
                 </div>
               </div>
@@ -104,4 +99,4 @@ const AddEmployee: FC = () => {
   );
 };
 
-export default AddEmployee;
+export default EditEmployee;

@@ -8,19 +8,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 // components
 import { Dropdown, Input } from "@/components/atoms";
 
+// types
+import { FormValues } from "@/types";
+
 // utils
 import { ERROR_MESSAGE, GENDER } from "@/lib/constants";
 
 // styles
 import "@/styles/employee.css";
-
-type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  gender: string;
-};
 
 const schema = yup.object().shape({
   firstName: yup.string().required(ERROR_MESSAGE.FIRST_NAME_REQUIRED),

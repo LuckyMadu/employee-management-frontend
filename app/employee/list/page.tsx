@@ -2,8 +2,12 @@
 
 import { FC, useState, useEffect, useMemo } from "react";
 import axios from "axios";
-import { Navbar, EmployeeCard } from "@/components/organisms";
+
+// types
 import { IEmployee, BaseResponse } from "@/types";
+
+// components
+import { Navbar, EmployeeCard } from "@/components/organisms";
 
 const EmployeeList: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);

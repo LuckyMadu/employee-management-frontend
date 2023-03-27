@@ -1,23 +1,6 @@
 "use client";
 
-import { UseFormRegister } from "react-hook-form";
-interface DropdownOption {
-  label: string;
-  value: string;
-}
-interface FormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  gender: string;
-}
-interface DropdownProps {
-  name: keyof FormData;
-  options: DropdownOption[];
-  label?: string;
-  register: UseFormRegister<FormData>;
-}
+import { DropdownProps } from "@/types";
 
 export const Dropdown: React.FC<DropdownProps> = ({
   name,
@@ -28,26 +11,19 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <>
       {label && (
-        <label
-          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor={name}
-        >
+        <label className="dropdown-label " htmlFor={name}>
           {label}
         </label>
       )}
       <div className="relative">
-        <select
-          className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-          id={name}
-          {...register(name)}
-        >
+        <select className="dropdown-select" id={name} {...register(name)}>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}
         </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+        <div className="dropdown-down-arrow">
           <svg
             className="fill-current h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"

@@ -1,2 +1,8 @@
-export type { IEmployee, IEmployeeProps } from "./employee";
+export type {
+  IEmployee,
+  IEmployeeProps,
+  FormValues,
+  InputProps,
+  DropdownProps,
+} from "./employee";
 export type { BaseResponse } from "./responses";
