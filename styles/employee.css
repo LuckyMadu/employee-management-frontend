@@ -1,0 +1,19 @@
+.header-title {
+  @apply text-2xl text-center uppercase font-semibold mt-4;
+}
+
+.main-container {
+  @apply flex justify-center items-center min-h-screen;
+}
+
+.form-container {
+  @apply w-full max-w-2xl bg-white shadow-md rounded px-8 pb-8 mb-4 pt-4;
+}
+
+.grid-container {
+  @apply flex flex-wrap -mx-3 mb-6;
+}
+
+.input-container {
+  @apply w-full md:w-1/2 px-3;
+}

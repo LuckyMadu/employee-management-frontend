@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import { Image } from "@/components/atoms";
-import { COLORS } from "@/lib/constants/colors";
+import { COLORS } from "@/lib/constants";
 import { IEmployeeProps } from "@/types";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 

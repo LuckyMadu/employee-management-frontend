@@ -2,10 +2,17 @@
 
 import { FC, useState, useEffect, useMemo } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+// components
 import { Dropdown, Input } from "@/components/atoms";
-import { GENDER } from "@/lib/constants";
+
+// utils
+import { ERROR_MESSAGE, GENDER } from "@/lib/constants";
+
+// styles
+import "@/styles/employee.css";
 
 type FormValues = {
   firstName: string;
@@ -16,8 +23,8 @@ type FormValues = {
 };
 
 const schema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
+  firstName: yup.string().required(ERROR_MESSAGE.FIRST_NAME_REQUIRED),
+  lastName: yup.string().required(ERROR_MESSAGE.LAST_NAME_REQUIRED),
 });
 
 const AddEmployee: FC = () => {
@@ -31,15 +38,13 @@ const AddEmployee: FC = () => {
   };
   return (
     <>
-      <h1 className="text-2xl text-center uppercase font-semibold mt-4">
-        Add Employee
-      </h1>
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="w-full max-w-2xl bg-white shadow-md rounded px-8 pb-8 mb-4 pt-4">
+      <h1 className="header-title">Add Employee</h1>
+      <div className="main-container">
+        <div className="form-container">
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <div className="grid-container">
+                <div className="input-container">
                   <Input
                     name="firstName"
                     label="First Name"
@@ -48,7 +53,7 @@ const AddEmployee: FC = () => {
                     register={methods.register}
                   />
                 </div>
-                <div className="w-full md:w-1/2 px-3">
+                <div className="input-container">
                   <Input
                     name="lastName"
                     label="Last Name"
@@ -58,7 +63,7 @@ const AddEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="grid-container">
                 <div className="w-full px-3">
                   <Input
                     name="email"
@@ -69,8 +74,8 @@ const AddEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <div className="grid-container">
+                <div className="input-container">
                   <Input
                     name="phone"
                     label="Phone Number"
@@ -79,7 +84,7 @@ const AddEmployee: FC = () => {
                     register={methods.register}
                   />
                 </div>
-                <div className="w-full md:w-1/2 px-3">
+                <div className="input-container">
                   <Dropdown
                     name="gender"
                     label="Gender"
