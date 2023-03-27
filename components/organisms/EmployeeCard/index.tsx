@@ -1,11 +1,11 @@
 "use client";
 
 import { FC } from "react";
+import Link from "next/link";
 import { Image } from "@/components/atoms";
 import { COLORS } from "@/lib/constants/colors";
 import { IEmployeeProps } from "@/types";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
-import Link from "next/link";
 
 export const EmployeeCard: FC<IEmployeeProps> = ({ item }) => {
   return (
