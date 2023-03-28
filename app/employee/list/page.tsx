@@ -1,33 +1,27 @@
 "use client";
 
 import { FC, useState, useEffect, useMemo } from "react";
-import axios from "axios";
 
 // types
-import { IEmployee, BaseResponse } from "@/types";
+import { IEmployee } from "@/types";
 
 // components
 import { Navbar, EmployeeCard } from "@/components/organisms";
+import { fetchEmployees } from "@/services/employeeService";
 
 const EmployeeList: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [employees, setEmployees] = useState<IEmployee[]>([]);
+  const [employees, setEmployees] = useState<IEmployee[]>();
 
   const memoizedEmployees = useMemo(() => employees, [employees]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get<BaseResponse>(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/employee/list`
-        );
-        setEmployees(data?.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const fetchData = async () => {
+    const data = await fetchEmployees();
+    setEmployees(data);
+    setIsLoading(false);
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
