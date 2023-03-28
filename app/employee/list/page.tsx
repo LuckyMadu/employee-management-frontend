@@ -16,7 +16,7 @@ const EmployeeList: FC = () => {
   const memoizedEmployees = useMemo(() => employees, [employees]);
 
   const fetchData = async () => {
-    const data = await fetchEmployees();
+    const { data } = await fetchEmployees();
     setEmployees(data);
     setIsLoading(false);
   };
