@@ -8,8 +8,7 @@ export const fetchEmployees = async () => {
       `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.EMPLOYEE_LIST}`
     );
     return data;
-    //store.setEmployees(data);
   } catch (error) {
-    console.log("fetchEmployees Error", error);
+    console.log("fetch Employees Error", error);
   }
 };

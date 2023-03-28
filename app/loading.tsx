@@ -1,7 +1,17 @@
+"use client";
+
+import { Bars } from "react-loader-spinner";
+
 export default function Loading() {
   return (
-    <div>
-      <h1>Loading...</h1>
-    </div>
+    <Bars
+      height="80"
+      width="80"
+      color="#4fa94d"
+      ariaLabel="bars-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+    />
   );
 }

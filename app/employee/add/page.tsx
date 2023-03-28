@@ -2,7 +2,6 @@
 
 import { FC, useState, useEffect, useMemo } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // components
@@ -12,23 +11,20 @@ import { Dropdown, Input } from "@/components/atoms";
 import { FormValues } from "@/types";
 
 // utils
-import { ERROR_MESSAGE, GENDER } from "@/lib/constants";
+import { GENDER } from "@/lib/constants";
+import { employeeFormSchema } from "@/utils/validationSchema";
 
 // styles
 import "@/styles/employee.css";
 
-const schema = yup.object().shape({
-  firstName: yup.string().required(ERROR_MESSAGE.FIRST_NAME_REQUIRED),
-  lastName: yup.string().required(ERROR_MESSAGE.LAST_NAME_REQUIRED),
-});
-
 const AddEmployee: FC = () => {
   const methods = useForm<FormValues>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(employeeFormSchema),
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log("calledd--------------------");
+
     console.log(data);
   };
   return (

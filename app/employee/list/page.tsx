@@ -1,28 +1,20 @@
 "use client";
 
-import { FC, useState, useEffect, useMemo } from "react";
-
-// types
-import { IEmployee } from "@/types";
+import { FC, useEffect, useMemo } from "react";
 
 // components
 import { Navbar, EmployeeCard } from "@/components/organisms";
-import { fetchEmployees } from "@/services/employeeService";
+import useStore from "@/store";
+import { Loader } from "@/components/atoms";
 
 const EmployeeList: FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [employees, setEmployees] = useState<IEmployee[]>();
+  const { employees, isLoading, setEmployees, setIsLoading } = useStore();
 
   const memoizedEmployees = useMemo(() => employees, [employees]);
 
-  const fetchData = async () => {
-    const { data } = await fetchEmployees();
-    setEmployees(data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
-    fetchData();
+    setEmployees();
+    setIsLoading(false);
   }, []);
 
   return (
@@ -30,7 +22,7 @@ const EmployeeList: FC = () => {
       <Navbar />
       <div className="container mx-auto">
         {isLoading ? (
-          <div>Loading...</div>
+          <Loader />
         ) : (
           <div className="grid grid-cols-3 gap-6">
             {memoizedEmployees?.map((employee) => (
