@@ -99,11 +99,9 @@ const AddEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <div className="w-full">
-                <Button type="submit" className="w-full" isLoading={isLoading}>
-                  Submit
-                </Button>
-              </div>
+              <Button type="submit" className="w-full" isLoading={isLoading}>
+                Submit
+              </Button>
             </form>
           </FormProvider>
         </div>

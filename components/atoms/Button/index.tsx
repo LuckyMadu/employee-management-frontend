@@ -1,6 +1,8 @@
 import { FC } from "react";
+import classNames from "classnames";
 import { Loader } from "@/components/atoms/Loader";
 import { COLORS } from "@/constants";
+
 interface ButtonProps {
   children?: any;
   isLoading?: boolean;
@@ -17,7 +19,11 @@ export const Button: FC<ButtonProps> = ({
   type = "button",
 }) => {
   return (
-    <button type={type} onClick={onClick} className={`mainBtn ${className}`}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={classNames(className, "mainBtn")}
+    >
       {isLoading ? (
         <div className="flex justify-center">
           <Loader width="18" strokeColor={COLORS.WHITE} />
