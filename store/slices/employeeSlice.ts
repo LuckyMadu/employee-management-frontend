@@ -5,7 +5,7 @@ import { BaseResponse, IEmployee } from "@/types";
 import EmployeeStoreState from "../types/IEmployeeState";
 
 // services
-import { fetchEmployees } from "@/services/employeeService";
+import { createEmployee, fetchEmployees } from "@/services/employeeService";
 
 const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
   employees: [],
@@ -15,9 +15,8 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
     const data = await fetchEmployees();
     set(() => ({ employees: (data as BaseResponse).data }));
   },
-  addEmployee(employee: IEmployee) {
-    console.log("employee------------", employee);
-    set((state) => ({ employees: [...state.employees, employee] }));
+  addEmployee: async (employee: IEmployee) => {
+    const response = await createEmployee(employee);
   },
   setIsLoading: (isLoading: boolean) => set(() => ({ isLoading })),
   setError: (error: string | null) => set(() => ({ error })),

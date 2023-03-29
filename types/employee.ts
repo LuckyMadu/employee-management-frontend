@@ -1,6 +1,7 @@
 import { UseFormRegister } from "react-hook-form";
 
 export type IEmployee = {
+  _id?: string;
   firstName: string;
   lastName: string;
   email: string;

@@ -27,7 +27,6 @@ const AddEmployee: FC = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const { firstName, lastName, email, phone, gender } = data;
-    console.log(data);
 
     const payload = {
       firstName,

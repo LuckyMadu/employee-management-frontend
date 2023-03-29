@@ -21,7 +21,11 @@ instance.interceptors.response.use(
     return response;
   },
   (error: AxiosError) => {
-    if (error.response?.status === 403) {
+    if (
+      error.response?.status == 403 &&
+      error.response?.status > 199 &&
+      error.response?.status < 300
+    ) {
       return Promise.reject(error.response.data);
     }
     // return Error object with Promise

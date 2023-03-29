@@ -1,6 +1,7 @@
 import { API_ENDPOINTS } from "@/constants";
-import { BaseResponse } from "@/types";
+import { BaseResponse, IEmployee } from "@/types";
 import API from "@/utils/axiosInterceptor";
+import makeToast from "@/utils/toaster";
 
 export const fetchEmployees = async () => {
   try {
@@ -9,6 +10,20 @@ export const fetchEmployees = async () => {
     );
     return data;
   } catch (error) {
-    console.log("fetch Employees Error", error);
+    console.log("fetch employees error", error);
+  }
+};
+
+export const createEmployee = async (data: IEmployee) => {
+  try {
+    const response = await API.post<BaseResponse>(
+      `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.CREATE_EMPLOYEE}`,
+      { data }
+    );
+    makeToast(response.data.message, "success");
+    return response;
+  } catch (error: any) {
+    makeToast(error.data.error.message, "error");
+    console.log("create employee error", error);
   }
 };
