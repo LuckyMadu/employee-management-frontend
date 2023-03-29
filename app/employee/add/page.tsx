@@ -11,21 +11,32 @@ import { Dropdown, Input } from "@/components/atoms";
 import { FormValues } from "@/types";
 
 // utils
-import { GENDER } from "@/lib/constants";
+import { GENDER } from "@/constants";
 import { employeeFormSchema } from "@/utils/validationSchema";
 
 // styles
 import "@/styles/employee.css";
+import useStore from "@/store";
 
 const AddEmployee: FC = () => {
+  const { isLoading, addEmployee, setIsLoading } = useStore();
+
   const methods = useForm<FormValues>({
     resolver: yupResolver(employeeFormSchema),
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log("calledd--------------------");
-
+    const { firstName, lastName, email, phone, gender } = data;
     console.log(data);
+
+    const payload = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      gender,
+    };
+    addEmployee(payload);
   };
   return (
     <>

@@ -16,6 +16,7 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
     set(() => ({ employees: (data as BaseResponse).data }));
   },
   addEmployee(employee: IEmployee) {
+    console.log("employee------------", employee);
     set((state) => ({ employees: [...state.employees, employee] }));
   },
   setIsLoading: (isLoading: boolean) => set(() => ({ isLoading })),

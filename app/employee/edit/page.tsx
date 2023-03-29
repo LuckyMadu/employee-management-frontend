@@ -12,7 +12,7 @@ import { Dropdown, Input } from "@/components/atoms";
 import { FormValues } from "@/types";
 
 // utils
-import { ERROR_MESSAGE, GENDER } from "@/lib/constants";
+import { ERROR_MESSAGE, GENDER } from "@/constants";
 
 // styles
 import "@/styles/employee.css";

@@ -1,14 +1,12 @@
 import { UseFormRegister } from "react-hook-form";
 
 export type IEmployee = {
-  _id: string;
-  id: string;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  number: string;
+  phone: string;
   gender: string;
-  photo: string;
+  photo?: string;
 };
 
 export interface IEmployeeProps {

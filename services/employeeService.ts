@@ -1,4 +1,4 @@
-import { API_ENDPOINTS } from "@/lib/constants";
+import { API_ENDPOINTS } from "@/constants";
 import { BaseResponse } from "@/types";
 import API from "@/utils/axiosInterceptor";
 
