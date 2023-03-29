@@ -18,10 +18,9 @@ export const createEmployee = async (data: IEmployee) => {
   try {
     const response = await API.post<BaseResponse>(
       `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.CREATE_EMPLOYEE}`,
-      { data }
+      data
     );
-    makeToast(response.data.message, "success");
-    return response;
+    if (response.data.success) makeToast(response.data.message, "success");
   } catch (error: any) {
     makeToast(error.data.error.message, "error");
     console.log("create employee error", error);

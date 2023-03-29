@@ -16,7 +16,7 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
     set(() => ({ employees: (data as BaseResponse).data }));
   },
   addEmployee: async (employee: IEmployee) => {
-    const response = await createEmployee(employee);
+    await createEmployee(employee);
   },
   setIsLoading: (isLoading: boolean) => set(() => ({ isLoading })),
   setError: (error: string | null) => set(() => ({ error })),

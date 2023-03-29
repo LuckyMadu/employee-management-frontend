@@ -5,7 +5,7 @@ import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // components
-import { Dropdown, Input } from "@/components/atoms";
+import { Button, Dropdown, Input } from "@/components/atoms";
 
 // types
 import { FormValues } from "@/types";
@@ -26,6 +26,7 @@ const AddEmployee: FC = () => {
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
+    setIsLoading(true);
     const { firstName, lastName, email, phone, gender } = data;
 
     const payload = {
@@ -36,6 +37,10 @@ const AddEmployee: FC = () => {
       gender,
     };
     addEmployee(payload);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
   return (
     <>
@@ -94,9 +99,11 @@ const AddEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <button type="submit" className="btn w-full">
-                Submit
-              </button>
+              <div className="w-full">
+                <Button type="submit" className="w-full" isLoading={isLoading}>
+                  Submit
+                </Button>
+              </div>
             </form>
           </FormProvider>
         </div>

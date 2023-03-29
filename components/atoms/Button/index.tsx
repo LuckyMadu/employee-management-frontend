@@ -1,17 +1,30 @@
 import { FC } from "react";
-
+import { Loader } from "@/components/atoms/Loader";
+import { COLORS } from "@/constants";
 interface ButtonProps {
   children?: any;
-  layout?: "primary" | "accent";
-  size?: "sm" | "base" | "lg";
+  isLoading?: boolean;
   className?: string;
   onClick?: () => void;
+  type?: "button" | "submit";
 }
 
-export const Button: FC<ButtonProps> = ({ children, onClick }) => {
+export const Button: FC<ButtonProps> = ({
+  children,
+  onClick,
+  className,
+  isLoading,
+  type = "button",
+}) => {
   return (
-    <button onClick={onClick} className="mainBtn">
-      {children}
+    <button type={type} onClick={onClick} className={`mainBtn ${className}`}>
+      {isLoading ? (
+        <div className="flex justify-center">
+          <Loader width="18" strokeColor={COLORS.WHITE} />
+        </div>
+      ) : (
+        children
+      )}
     </button>
   );
 };
