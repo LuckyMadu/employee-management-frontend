@@ -19,11 +19,7 @@ export const Button: FC<ButtonProps> = ({
   type = "button",
 }) => {
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={classNames(className, "mainBtn")}
-    >
+    <button type={type} onClick={onClick} className={className}>
       {isLoading ? (
         <div className="flex justify-center">
           <Loader width="18" strokeColor={COLORS.WHITE} />

@@ -2,34 +2,51 @@
 
 import { FC, useState, useEffect, useMemo } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // components
-import { Dropdown, Input } from "@/components/atoms";
+import { Button, Dropdown, Input } from "@/components/atoms";
 
 // types
 import { FormValues } from "@/types";
 
 // utils
-import { ERROR_MESSAGE, GENDER } from "@/constants";
+import { GENDER } from "@/constants";
+import { employeeFormSchema } from "@/utils/validationSchema";
 
 // styles
 import "@/styles/employee.css";
-
-const schema = yup.object().shape({
-  firstName: yup.string().required(ERROR_MESSAGE.FIRST_NAME_REQUIRED),
-  lastName: yup.string().required(ERROR_MESSAGE.LAST_NAME_REQUIRED),
-});
+import useStore from "@/store";
 
 const EditEmployee: FC = () => {
+  const { isLoading, addEmployee, setIsLoading } = useStore();
+
+  useEffect(() => {
+    return () => {
+      setIsLoading(false);
+    };
+  }, []);
+
   const methods = useForm<FormValues>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(employeeFormSchema),
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log("calledd--------------------");
-    console.log(data);
+    setIsLoading(true);
+    const { firstName, lastName, email, phone, gender } = data;
+
+    const payload = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      gender,
+    };
+    addEmployee(payload);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
   return (
     <>
@@ -88,9 +105,13 @@ const EditEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <button type="submit" className="btn w-full">
+              <Button
+                type="submit"
+                className="btn w-full"
+                isLoading={isLoading}
+              >
                 Submit
-              </button>
+              </Button>
             </form>
           </FormProvider>
         </div>

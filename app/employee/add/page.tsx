@@ -21,6 +21,12 @@ import useStore from "@/store";
 const AddEmployee: FC = () => {
   const { isLoading, addEmployee, setIsLoading } = useStore();
 
+  useEffect(() => {
+    return () => {
+      setIsLoading(false);
+    };
+  }, []);
+
   const methods = useForm<FormValues>({
     resolver: yupResolver(employeeFormSchema),
   });
@@ -99,7 +105,11 @@ const AddEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <Button type="submit" className="w-full" isLoading={isLoading}>
+              <Button
+                type="submit"
+                className="btn w-full"
+                isLoading={isLoading}
+              >
                 Submit
               </Button>
             </form>

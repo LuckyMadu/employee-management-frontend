@@ -1,9 +1,9 @@
 .header-title {
-  @apply text-2xl text-center uppercase font-semibold mt-4;
+  @apply text-2xl text-center uppercase font-semibold mt-4 mb-20;
 }
 
 .main-container {
-  @apply flex justify-center items-center min-h-screen;
+  @apply flex justify-center items-center;
 }
 
 .form-container {
