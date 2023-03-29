@@ -41,3 +41,9 @@ export interface DropdownProps {
   label?: string;
   register: UseFormRegister<FormValues>;
 }
+
+export interface IEmployeeEditProps {
+  params: {
+    employee: string;
+  };
+}

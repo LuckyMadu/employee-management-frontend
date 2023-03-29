@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Dropdown, Input } from "@/components/atoms";
 
 // types
-import { FormValues } from "@/types";
+import { FormValues, IEmployeeEditProps } from "@/types";
 
 // utils
 import { GENDER } from "@/constants";
@@ -18,18 +18,38 @@ import { employeeFormSchema } from "@/utils/validationSchema";
 import "@/styles/employee.css";
 import useStore from "@/store";
 
-const EditEmployee: FC = () => {
-  const { isLoading, addEmployee, setIsLoading } = useStore();
-
-  useEffect(() => {
-    return () => {
-      setIsLoading(false);
-    };
-  }, []);
+const EditEmployee: FC<IEmployeeEditProps> = ({
+  params: { employee: employeeId },
+}) => {
+  const { employee, isLoading, addEmployee, setSingleEmployee, setIsLoading } =
+    useStore();
 
   const methods = useForm<FormValues>({
     resolver: yupResolver(employeeFormSchema),
   });
+
+  const memoizedMethods = useMemo(
+    () => ({ setValue: methods.setValue }),
+    [methods.setValue]
+  );
+
+  useEffect(() => {
+    setSingleEmployee(employeeId);
+
+    return () => {
+      setIsLoading(false);
+    };
+  }, [isLoading, setIsLoading, setSingleEmployee, employeeId]);
+
+  useEffect(() => {
+    if (employee) {
+      memoizedMethods.setValue("firstName", employee.firstName);
+      memoizedMethods.setValue("lastName", employee.lastName);
+      memoizedMethods.setValue("email", employee.email);
+      memoizedMethods.setValue("phone", employee.phone);
+      memoizedMethods.setValue("gender", employee.gender);
+    }
+  }, [employee, memoizedMethods]);
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setIsLoading(true);
@@ -91,7 +111,7 @@ const EditEmployee: FC = () => {
                   <Input
                     name="phone"
                     label="Phone Number"
-                    type="number"
+                    type="text"
                     placeholder="+94 712 130 466"
                     register={methods.register}
                   />
@@ -105,13 +125,15 @@ const EditEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <Button
-                type="submit"
-                className="btn w-full"
-                isLoading={isLoading}
-              >
-                Submit
-              </Button>
+              {!isLoading && (
+                <Button
+                  type="submit"
+                  className="btn w-full"
+                  isLoading={isLoading}
+                >
+                  Update
+                </Button>
+              )}
             </form>
           </FormProvider>
         </div>

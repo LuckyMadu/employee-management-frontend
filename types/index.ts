@@ -4,5 +4,6 @@ export type {
   FormValues,
   InputProps,
   DropdownProps,
+  IEmployeeEditProps,
 } from "./employee";
-export type { BaseResponse } from "./responses";
+export type { BaseResponse, BaseEmployeeResponse } from "./responses";

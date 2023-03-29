@@ -6,11 +6,27 @@ import makeToast from "@/utils/toaster";
 export const fetchEmployees = async () => {
   try {
     const { data } = await API.get<BaseResponse>(
-      `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.EMPLOYEE_LIST}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.GET_EMPLOYEE_LIST}`
     );
     return data;
   } catch (error) {
     console.log("fetch employees error", error);
+  }
+};
+
+export const fetchSingleEmployee = async (employeeId: string) => {
+  try {
+    const { data } = await API.get<BaseResponse>(
+      `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.GET_SINGLE_EMPLOYEE}${employeeId}`,
+      {
+        params: {
+          id: employeeId,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.log("fetch single employee error", error);
   }
 };
 

@@ -105,13 +105,15 @@ const AddEmployee: FC = () => {
                   />
                 </div>
               </div>
-              <Button
-                type="submit"
-                className="btn w-full"
-                isLoading={isLoading}
-              >
-                Submit
-              </Button>
+              {!isLoading && (
+                <Button
+                  type="submit"
+                  className="btn w-full"
+                  isLoading={isLoading}
+                >
+                  Add
+                </Button>
+              )}
             </form>
           </FormProvider>
         </div>

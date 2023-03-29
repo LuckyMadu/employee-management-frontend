@@ -1,5 +1,6 @@
 // list of endpoints
 export const API_ENDPOINTS = {
-  EMPLOYEE_LIST: "/employee/list",
+  GET_EMPLOYEE_LIST: "/employee/list",
   CREATE_EMPLOYEE: "/employee",
+  GET_SINGLE_EMPLOYEE: "/employee/",
 };

@@ -38,7 +38,7 @@ export const EmployeeCard: FC<IEmployeeProps> = ({ item }) => {
           <dd className="font-semibold">{item.phone}</dd>
         </div>
         <div className="card-actions justify-end">
-          <Link href="/employee/edit">
+          <Link href={`/employee/${item._id}`}>
             <RiEditBoxLine size={26} color={COLORS.RED} />
           </Link>
 
