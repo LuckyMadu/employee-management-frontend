@@ -7,6 +7,7 @@ interface EmployeeStoreState {
   error: string | null;
   setEmployees: () => Promise<void>;
   addEmployee: (employee: IEmployee) => void;
+  updateEmployee: (employeeId: string, employee: IEmployee) => void;
   setSingleEmployee: (employeeId: string) => Promise<void>;
   setIsLoading: (isLoading: boolean) => void;
   setError: (error: string | null) => void;

@@ -1,11 +1,10 @@
 "use client";
 
-import { FC, useState, useEffect, useMemo } from "react";
+import { FC, useEffect } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // components
-import { Button } from "@/components/atoms";
 import { EmployeeForm } from "@/components/organisms";
 
 // types
@@ -14,9 +13,11 @@ import { FormValues } from "@/types";
 // utils
 import { employeeFormSchema } from "@/utils/validationSchema";
 
+// store
+import useStore from "@/store";
+
 // styles
 import "@/styles/employee.css";
-import useStore from "@/store";
 
 const AddEmployee: FC = () => {
   const { isLoading, addEmployee, setIsLoading } = useStore();
@@ -55,16 +56,11 @@ const AddEmployee: FC = () => {
         <div className="form-container">
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <EmployeeForm methods={methods} />
-              {!isLoading && (
-                <Button
-                  type="submit"
-                  className="btn w-full"
-                  isLoading={isLoading}
-                >
-                  Add
-                </Button>
-              )}
+              <EmployeeForm
+                methods={methods}
+                isLoading={isLoading}
+                buttonText="Add"
+              />
             </form>
           </FormProvider>
         </div>

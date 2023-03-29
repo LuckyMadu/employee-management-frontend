@@ -1,12 +1,13 @@
 import { FC } from "react";
-import { UseFormReturn } from "react-hook-form";
 
-import { Dropdown, Input } from "@/components/atoms";
+import { Button, Dropdown, Input } from "@/components/atoms";
 import { GENDER } from "@/constants";
-import { FormValues } from "@/types";
+import { IEmployeeFormProps } from "@/types";
 
-export const EmployeeForm: FC<{ methods: UseFormReturn<FormValues> }> = ({
+export const EmployeeForm: FC<IEmployeeFormProps> = ({
   methods,
+  isLoading,
+  buttonText,
 }) => {
   return (
     <>
@@ -60,6 +61,9 @@ export const EmployeeForm: FC<{ methods: UseFormReturn<FormValues> }> = ({
           />
         </div>
       </div>
+      <Button type="submit" className="btn w-full" isLoading={isLoading}>
+        {buttonText}
+      </Button>
     </>
   );
 };

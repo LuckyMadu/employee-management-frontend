@@ -1,11 +1,10 @@
 "use client";
 
-import { FC, useState, useEffect, useMemo } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // components
-import { Button } from "@/components/atoms";
 import { EmployeeForm } from "@/components/organisms";
 
 // types
@@ -14,15 +13,22 @@ import { FormValues, IEmployeeEditProps } from "@/types";
 // utils
 import { employeeFormSchema } from "@/utils/validationSchema";
 
+// store
+import useStore from "@/store";
+
 // styles
 import "@/styles/employee.css";
-import useStore from "@/store";
 
 const EditEmployee: FC<IEmployeeEditProps> = ({
   params: { employee: employeeId },
 }) => {
-  const { employee, isLoading, addEmployee, setSingleEmployee, setIsLoading } =
-    useStore();
+  const {
+    employee,
+    isLoading,
+    updateEmployee,
+    setSingleEmployee,
+    setIsLoading,
+  } = useStore();
 
   const methods = useForm<FormValues>({
     resolver: yupResolver(employeeFormSchema),
@@ -35,7 +41,6 @@ const EditEmployee: FC<IEmployeeEditProps> = ({
 
   useEffect(() => {
     setSingleEmployee(employeeId);
-
     return () => {
       setIsLoading(false);
     };
@@ -54,7 +59,6 @@ const EditEmployee: FC<IEmployeeEditProps> = ({
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setIsLoading(true);
     const { firstName, lastName, email, phone, gender } = data;
-
     const payload = {
       firstName,
       lastName,
@@ -62,8 +66,7 @@ const EditEmployee: FC<IEmployeeEditProps> = ({
       phone,
       gender,
     };
-    addEmployee(payload);
-
+    updateEmployee(employeeId, payload);
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -75,16 +78,11 @@ const EditEmployee: FC<IEmployeeEditProps> = ({
         <div className="form-container">
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <EmployeeForm methods={methods} />
-              {!isLoading && (
-                <Button
-                  type="submit"
-                  className="btn w-full"
-                  isLoading={isLoading}
-                >
-                  Update
-                </Button>
-              )}
+              <EmployeeForm
+                methods={methods}
+                isLoading={isLoading}
+                buttonText="Update"
+              />
             </form>
           </FormProvider>
         </div>

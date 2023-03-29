@@ -9,6 +9,7 @@ import {
   createEmployee,
   fetchEmployees,
   fetchSingleEmployee,
+  updateEmployee,
 } from "@/services/employeeService";
 
 const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
@@ -26,6 +27,9 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
   setSingleEmployee: async (employeeId: string) => {
     const data = await fetchSingleEmployee(employeeId);
     set(() => ({ employee: (data as BaseEmployeeResponse).data.data }));
+  },
+  updateEmployee: async (employeeId: string, employee: IEmployee) => {
+    await updateEmployee(employeeId, employee);
   },
   setIsLoading: (isLoading: boolean) => set(() => ({ isLoading })),
   setError: (error: string | null) => set(() => ({ error })),

@@ -1,4 +1,4 @@
-import { UseFormRegister } from "react-hook-form";
+import { UseFormRegister, UseFormReturn } from "react-hook-form";
 
 export type IEmployee = {
   _id?: string;
@@ -46,4 +46,9 @@ export interface IEmployeeEditProps {
   params: {
     employee: string;
   };
+}
+export interface IEmployeeFormProps {
+  methods: UseFormReturn<FormValues>;
+  isLoading: boolean;
+  buttonText: string;
 }
