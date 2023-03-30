@@ -61,9 +61,15 @@ export const EmployeeForm: FC<IEmployeeFormProps> = ({
           />
         </div>
       </div>
-      <Button type="submit" className="btn w-full" isLoading={isLoading}>
-        {buttonText}
-      </Button>
+      <div className="relative py-6 mb-6">
+        <Button
+          type="submit"
+          className="btn px-10 absolute right-0"
+          isLoading={isLoading}
+        >
+          {buttonText}
+        </Button>
+      </div>
     </>
   );
 };
