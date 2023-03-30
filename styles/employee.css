@@ -41,3 +41,7 @@
 .dropdown-down-arrow {
   @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700;
 }
+
+.footer-btn {
+  @apply flex justify-center items-center w-auto mt-20;
+}

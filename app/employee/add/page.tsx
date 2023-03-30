@@ -1,10 +1,12 @@
 "use client";
 
 import { FC, useEffect } from "react";
+import Link from "next/link";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // components
+import { Button } from "@/components/atoms";
 import { EmployeeForm } from "@/components/organisms";
 
 // types
@@ -64,6 +66,11 @@ const AddEmployee: FC = () => {
             </form>
           </FormProvider>
         </div>
+      </div>
+      <div className="footer-btn">
+        <Link href={"/employee/list"}>
+          <Button className="btn btn-info">Go back to employee list</Button>
+        </Link>
       </div>
     </>
   );
