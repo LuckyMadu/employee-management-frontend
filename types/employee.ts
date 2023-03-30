@@ -9,10 +9,22 @@ export type IEmployee = {
   gender: string;
   photo?: string;
 };
+export type ISelectedEmployee = {
+  email: string;
+  firstName: string;
+  gender: string;
+  id?: string;
+  lastName: string;
+  phone: string;
+  photo?: string;
+  updatedAt?: string;
+  _id?: string;
+};
 
 export interface IEmployeeProps {
   item: IEmployee;
-  setIsModalOpen: (value: boolean) => void;
+  setModalIsOpen: (value: boolean) => void;
+  setSelectedEmployee: (value: ISelectedEmployee) => void;
 }
 
 export type FormValues = {
@@ -56,5 +68,7 @@ export interface IEmployeeFormProps {
 
 export interface IModalProps {
   modalIsOpen: boolean;
-  setIsModalOpen: (value: boolean) => void;
+  selectedEmployee: ISelectedEmployee;
+  setModalIsOpen: (value: boolean) => void;
+  handleRemoveEmployee: () => void;
 }

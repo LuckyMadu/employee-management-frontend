@@ -4,4 +4,5 @@ export const API_ENDPOINTS = {
   CREATE_EMPLOYEE: "/employee",
   GET_SINGLE_EMPLOYEE: "/employee/",
   UPDATE_EMPLOYEE: "/employee/",
+  DELETE_EMPLOYEE: "/employee/",
 };

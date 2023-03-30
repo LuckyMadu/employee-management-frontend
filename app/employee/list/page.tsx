@@ -3,30 +3,56 @@
 import { FC, useEffect, useMemo, useState } from "react";
 
 // components
-import { Navbar, EmployeeCard } from "@/components/organisms";
-import useStore from "@/store";
 import { Loader } from "@/components/atoms";
 import { ConfirmationModal } from "@/components/molecules";
+import { Navbar, EmployeeCard } from "@/components/organisms";
+
+// store
+import useStore from "@/store";
+
+import { ISelectedEmployee } from "@/types";
 
 const EmployeeList: FC = () => {
-  const [modalIsOpen, setIsModalOpen] = useState(false);
-  const { employees, isLoading, setEmployees, setIsLoading } = useStore();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState<ISelectedEmployee>();
+
+  const { employees, isLoading, setEmployees, removeEmployee, setIsLoading } =
+    useStore();
 
   const memoizedEmployees = useMemo(() => employees, [employees]);
 
   useEffect(() => {
-    setEmployees();
-    setIsLoading(false);
+    const fetchEmployees = async () => {
+      await setEmployees();
+      setIsLoading(false);
+    };
+    fetchEmployees();
   }, []);
+
+  const handleRemoveEmployee = async () => {
+    if (selectedEmployee?._id) {
+      try {
+        await removeEmployee(selectedEmployee._id);
+        await setEmployees();
+        setModalIsOpen(false);
+      } catch (error) {
+        console.log("employee fetching failed after remove", error);
+      }
+    }
+  };
 
   return (
     <>
       <Navbar />
       <div className="container mx-auto">
-        <ConfirmationModal
-          modalIsOpen={modalIsOpen}
-          setIsModalOpen={setIsModalOpen}
-        />
+        {selectedEmployee && (
+          <ConfirmationModal
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+            selectedEmployee={selectedEmployee}
+            handleRemoveEmployee={handleRemoveEmployee}
+          />
+        )}
         {isLoading ? (
           <Loader />
         ) : (
@@ -35,7 +61,8 @@ const EmployeeList: FC = () => {
               <EmployeeCard
                 key={employee._id}
                 item={employee}
-                setIsModalOpen={setIsModalOpen}
+                setModalIsOpen={setModalIsOpen}
+                setSelectedEmployee={setSelectedEmployee}
               />
             ))}
           </div>

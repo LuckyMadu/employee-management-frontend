@@ -52,6 +52,18 @@ export const updateEmployee = async (employeeId: string, data: IEmployee) => {
     if (response.data.success) makeToast(response.data.message, "success");
   } catch (error: any) {
     makeToast(error.data.error.message, "error");
-    console.log("create employee error", error);
+    console.log("update employee error", error);
+  }
+};
+
+export const deleteEmployee = async (employeeId: string) => {
+  try {
+    const response = await API.delete<BaseResponse>(
+      `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.DELETE_EMPLOYEE}${employeeId}`
+    );
+    if (response.data.success) makeToast(response.data.message, "success");
+  } catch (error: any) {
+    makeToast(error.data.error.message, "error");
+    console.log("delete employee error", error);
   }
 };

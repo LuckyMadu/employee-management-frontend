@@ -10,6 +10,7 @@ import {
   fetchEmployees,
   fetchSingleEmployee,
   updateEmployee,
+  deleteEmployee,
 } from "@/services/employeeService";
 
 const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
@@ -30,6 +31,9 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
   },
   updateEmployee: async (employeeId: string, employee: IEmployee) => {
     await updateEmployee(employeeId, employee);
+  },
+  removeEmployee: async (employeeId: string) => {
+    await deleteEmployee(employeeId);
   },
   setIsLoading: (isLoading: boolean) => set(() => ({ isLoading })),
   setError: (error: string | null) => set(() => ({ error })),

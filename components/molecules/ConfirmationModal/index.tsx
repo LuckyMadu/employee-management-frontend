@@ -6,20 +6,30 @@ import { MODAL_STYLES } from "@/constants";
 
 export const ConfirmationModal: FC<IModalProps> = ({
   modalIsOpen,
-  setIsModalOpen,
+  setModalIsOpen,
+  selectedEmployee,
+  handleRemoveEmployee,
 }) => {
   return (
     <Modal
       isOpen={modalIsOpen}
-      onRequestClose={() => setIsModalOpen(false)}
+      onRequestClose={() => setModalIsOpen(false)}
       style={MODAL_STYLES}
     >
       <div className="p-2">
         <h3 className="font-bold text-2xl">Delete Employee</h3>
-        <p className="py-4">Are you sure you want to delete the employee?</p>
+        <p className="py-4">
+          Are you sure you want to delete the employee? {`\n`}
+          <p className="font-semibold">
+            {selectedEmployee?._id &&
+              selectedEmployee.firstName + " " + selectedEmployee.lastName}
+          </p>
+        </p>
         <div className="modal-action">
-          <label className="btn btn-error">Delete</label>
-          <label className="btn" onClick={() => setIsModalOpen(false)}>
+          <label className="btn btn-error" onClick={handleRemoveEmployee}>
+            Delete
+          </label>
+          <label className="btn" onClick={() => setModalIsOpen(false)}>
             Cancel
           </label>
         </div>
