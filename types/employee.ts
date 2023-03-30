@@ -12,6 +12,7 @@ export type IEmployee = {
 
 export interface IEmployeeProps {
   item: IEmployee;
+  setIsModalOpen: (value: boolean) => void;
 }
 
 export type FormValues = {
@@ -51,4 +52,9 @@ export interface IEmployeeFormProps {
   methods: UseFormReturn<FormValues>;
   isLoading: boolean;
   buttonText: string;
+}
+
+export interface IModalProps {
+  modalIsOpen: boolean;
+  setIsModalOpen: (value: boolean) => void;
 }

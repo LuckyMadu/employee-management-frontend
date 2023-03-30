@@ -7,7 +7,7 @@ import { COLORS } from "@/constants";
 import { IEmployeeProps } from "@/types";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 
-export const EmployeeCard: FC<IEmployeeProps> = ({ item }) => {
+export const EmployeeCard: FC<IEmployeeProps> = ({ item, setIsModalOpen }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -39,10 +39,13 @@ export const EmployeeCard: FC<IEmployeeProps> = ({ item }) => {
         </div>
         <div className="card-actions justify-end">
           <Link href={`/employee/${item._id}`}>
-            <RiEditBoxLine size={26} color={COLORS.RED} />
+            <RiEditBoxLine size={26} color={COLORS.BLUE} />
           </Link>
-
-          <RiDeleteBin5Fill size={26} color={COLORS.RED} />
+          <RiDeleteBin5Fill
+            size={26}
+            color={COLORS.RED}
+            onClick={() => setIsModalOpen(true)}
+          />
         </div>
       </div>
     </div>

@@ -6,5 +6,6 @@ export type {
   DropdownProps,
   IEmployeeEditProps,
   IEmployeeFormProps,
+  IModalProps,
 } from "./employee";
 export type { BaseResponse, BaseEmployeeResponse } from "./responses";
