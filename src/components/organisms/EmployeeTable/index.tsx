@@ -7,7 +7,11 @@ import Link from "next/link";
 import { Image, TableRow } from "@/src/components/atoms";
 
 // utils
-import { COLORS, TABLE_TITLES } from "@/src/constants";
+import {
+  COLORS,
+  DEFAULT_PROFILE_IMAGE_URL,
+  TABLE_TITLES,
+} from "@/src/constants";
 import { IEmployeeTableProps } from "@/src/types";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 
@@ -39,7 +43,7 @@ export const EmployeeTable: FC<IEmployeeTableProps> = ({
                     src={
                       employee.photo
                         ? employee.photo
-                        : "https://randomuser.me/api/portraits/lego/7.jpg"
+                        : DEFAULT_PROFILE_IMAGE_URL
                     }
                     className="w-20 h-20"
                     alt="profile image"

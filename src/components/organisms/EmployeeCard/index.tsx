@@ -8,7 +8,7 @@ import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 import { Image } from "@/src/components/atoms";
 
 // utils
-import { COLORS } from "@/src/constants";
+import { COLORS, DEFAULT_PROFILE_IMAGE_URL } from "@/src/constants";
 import { IEmployeeProps } from "@/src/types";
 
 export const EmployeeCard: FC<IEmployeeProps> = ({
@@ -20,11 +20,7 @@ export const EmployeeCard: FC<IEmployeeProps> = ({
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
         <Image
-          src={
-            item.photo
-              ? item.photo
-              : "https://randomuser.me/api/portraits/lego/7.jpg"
-          }
+          src={item.photo ? item.photo : DEFAULT_PROFILE_IMAGE_URL}
           className="w-40 h-100"
           alt="profile image"
         />

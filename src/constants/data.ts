@@ -1,3 +1,6 @@
+export const DEFAULT_PROFILE_IMAGE_URL =
+  "https://randomuser.me/api/portraits/lego/7.jpg";
+
 // list of genders used in employee form
 export const GENDER = [
   {
