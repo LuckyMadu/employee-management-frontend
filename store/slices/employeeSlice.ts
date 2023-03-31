@@ -16,11 +16,15 @@ import {
 const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
   employees: [],
   employee: undefined,
-  isLoading: true,
+  isLoading: false,
   error: null,
   setEmployees: async () => {
+    set({ isLoading: true });
     const data = await fetchEmployees();
-    set(() => ({ employees: (data as BaseEmployeeResponse).data }));
+    set(() => ({
+      employees: (data as BaseEmployeeResponse).data,
+      isLoading: false,
+    }));
   },
   addEmployee: async (employee: IEmployee) => {
     await createEmployee(employee);

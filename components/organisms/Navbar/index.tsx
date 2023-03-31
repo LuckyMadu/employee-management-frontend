@@ -1,3 +1,4 @@
+import { SearchInput } from "@/components/molecules";
 import Link from "next/link";
 
 export const Navbar = () => {
@@ -9,13 +10,7 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered"
-          />
-        </div>
+        <SearchInput />
       </div>
       <div className="navbar-end">
         <Link href="/employee/add" className="btn mr-10">

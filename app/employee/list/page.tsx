@@ -16,15 +16,13 @@ const EmployeeList: FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState<ISelectedEmployee>();
 
-  const { employees, isLoading, setEmployees, removeEmployee, setIsLoading } =
-    useStore();
+  const { employees, isLoading, setEmployees, removeEmployee } = useStore();
 
   const memoizedEmployees = useMemo(() => employees, [employees]);
 
   useEffect(() => {
     const fetchEmployees = async () => {
       await setEmployees();
-      setIsLoading(false);
     };
     fetchEmployees();
   }, []);
