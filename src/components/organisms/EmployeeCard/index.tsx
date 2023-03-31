@@ -8,7 +8,7 @@ import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 import { Image } from "@/src/components/atoms";
 
 // utils
-import { COLORS } from "@/constants";
+import { COLORS } from "@/src/constants";
 import { IEmployeeProps } from "@/src/types";
 
 export const EmployeeCard: FC<IEmployeeProps> = ({

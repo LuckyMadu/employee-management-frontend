@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE } from "@/constants";
+import { ERROR_MESSAGE } from "@/src/constants";
 import * as Yup from "yup";
 
 export const employeeFormSchema = Yup.object().shape({

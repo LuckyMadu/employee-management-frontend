@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Loader } from "@/src/components/atoms/Loader";
-import { COLORS } from "@/constants";
+import { COLORS } from "@/src/constants";
 
 interface ButtonProps {
   children?: ReactNode;
