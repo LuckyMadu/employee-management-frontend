@@ -4,39 +4,53 @@ import { FC } from "react";
 import Link from "next/link";
 
 // components
-import { Image } from "@/src/components/atoms";
+import { Image, TableRow } from "@/src/components/atoms";
 
 // utils
-import { COLORS } from "@/src/constants";
-import { IEmployeeProps } from "@/src/types";
+import { TABLE_TITLES } from "@/src/constants";
+import { IEmployeeTableProps } from "@/src/types";
 
-export const EmployeeTable: FC = ({}) => {
+export const EmployeeTable: FC<IEmployeeTableProps> = ({ employees }) => {
   return (
-    <table className="table-auto">
-      <thead>
-        <tr>
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Year</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-          <td>Malcolm Lockyer</td>
-          <td>1961</td>
-        </tr>
-        <tr>
-          <td>Witchy Woman</td>
-          <td>The Eagles</td>
-          <td>1972</td>
-        </tr>
-        <tr>
-          <td>Shining Star</td>
-          <td>Earth, Wind, and Fire</td>
-          <td>1975</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="rounded-t-xl overflow-hidden p-10">
+      <table className="table-auto">
+        <thead className="bg-gray-200">
+          <tr>
+            {TABLE_TITLES.map((item) => {
+              return (
+                <th className="px-4 py-2" key={item.key}>
+                  {item.value}
+                </th>
+              );
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {employees?.map((employee) => {
+            return (
+              <tr>
+                <TableRow>
+                  <Image
+                    src={
+                      employee.photo
+                        ? employee.photo
+                        : "https://randomuser.me/api/portraits/lego/7.jpg"
+                    }
+                    className="w-20 h-20"
+                    alt="profile image"
+                  />
+                </TableRow>
+                <TableRow text={employee.firstName} />
+                <TableRow text={employee.lastName} />
+                <TableRow text={employee.email} />
+                <TableRow text={employee.phone} />
+                <TableRow text={employee.gender} />
+                <TableRow text={employee.gender} />
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };

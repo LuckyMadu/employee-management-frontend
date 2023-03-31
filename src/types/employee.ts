@@ -76,3 +76,6 @@ export interface ILayoutChangeProps {
   isTableViewOn: boolean;
   handleLayoutChange: () => void;
 }
+export interface IEmployeeTableProps {
+  employees: ISelectedEmployee[];
+}

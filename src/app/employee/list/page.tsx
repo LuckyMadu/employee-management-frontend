@@ -18,7 +18,7 @@ import { ISelectedEmployee } from "@/src/types";
 
 const EmployeeList: FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [isTableViewOn, setIsTableViewOn] = useState<boolean>(false);
+  const [isTableViewOn, setIsTableViewOn] = useState<boolean>(true);
   const [selectedEmployee, setSelectedEmployee] = useState<ISelectedEmployee>();
 
   const { employees, isLoading, setEmployees, removeEmployee } = useStore();
@@ -71,7 +71,9 @@ const EmployeeList: FC = () => {
         {isLoading ? (
           <Loader />
         ) : isTableViewOn ? (
-          <EmployeeTable />
+          <div className="flex justify-center">
+            <EmployeeTable employees={memoizedEmployees} />
+          </div>
         ) : (
           <div className="grid grid-cols-3 gap-6">
             {memoizedEmployees?.map((employee) => (

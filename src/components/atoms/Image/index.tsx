@@ -1,15 +1,17 @@
 import { FC } from "react";
 import Image from "next/image";
+import classNames from "classnames";
 
 interface CommonImageProps {
   src: string;
   alt: string;
+  className: string;
 }
 
-export const CommonImage: FC<CommonImageProps> = ({ src, alt }) => {
+export const CommonImage: FC<CommonImageProps> = ({ src, alt, className }) => {
   return (
     <Image
-      className="rounded-xl w-40 h-100"
+      className={classNames("rounded-xl", className)}
       sizes="100vw"
       width="0"
       height="0"

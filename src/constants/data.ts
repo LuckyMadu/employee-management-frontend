@@ -10,6 +10,38 @@ export const GENDER = [
   },
 ];
 
+// list of table titles
+export const TABLE_TITLES = [
+  {
+    key: 1,
+    value: "Image",
+  },
+  {
+    key: 2,
+    value: "First Name",
+  },
+  {
+    key: 3,
+    value: "Last Name",
+  },
+  {
+    key: 4,
+    value: "Email",
+  },
+  {
+    key: 5,
+    value: "Phone",
+  },
+  {
+    key: 6,
+    value: "Gender",
+  },
+  {
+    key: 7,
+    value: "Actions",
+  },
+];
+
 // list of validation mesages
 export const ERROR_MESSAGE = {
   FIRST_NAME_REQUIRED: "First name is required",

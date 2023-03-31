@@ -23,8 +23,9 @@ export const EmployeeCard: FC<IEmployeeProps> = ({
           src={
             item.photo
               ? item.photo
-              : "https://randomuser.me/api/portraits/med/men/75.jpg"
+              : "https://randomuser.me/api/portraits/lego/7.jpg"
           }
+          className="w-40 h-100"
           alt="profile image"
         />
       </figure>

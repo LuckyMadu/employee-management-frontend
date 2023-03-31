@@ -9,5 +9,6 @@ export type {
   IModalProps,
   ISelectedEmployee,
   ILayoutChangeProps,
+  IEmployeeTableProps,
 } from "./employee";
 export type { BaseResponse, BaseEmployeeResponse } from "./responses";
