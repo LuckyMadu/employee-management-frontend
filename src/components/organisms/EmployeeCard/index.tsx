@@ -17,7 +17,7 @@ export const EmployeeCard: FC<IEmployeeProps> = ({
   setSelectedEmployee,
 }) => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl">
       <figure>
         <Image
           src={item.photo ? item.photo : DEFAULT_PROFILE_IMAGE_URL}
@@ -25,7 +25,6 @@ export const EmployeeCard: FC<IEmployeeProps> = ({
           alt="profile image"
         />
       </figure>
-
       <div className="card-body">
         <h2 className="card-title">
           {item.firstName} {item.lastName}
