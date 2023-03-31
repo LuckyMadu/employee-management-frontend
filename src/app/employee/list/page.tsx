@@ -54,7 +54,7 @@ const EmployeeList: FC = () => {
       <Navbar />
 
       <div className="container mx-auto">
-        <div className="flex mb-10 justify-end">
+        <div className="layout-container">
           <LayoutSwitch
             isTableViewOn={isTableViewOn}
             handleLayoutChange={handleLayoutChange}
@@ -71,7 +71,7 @@ const EmployeeList: FC = () => {
         {isLoading ? (
           <Loader />
         ) : isTableViewOn ? (
-          <div className="flex justify-center">
+          <div className="table-container">
             <EmployeeTable
               employees={memoizedEmployees}
               setModalIsOpen={setModalIsOpen}
@@ -79,7 +79,7 @@ const EmployeeList: FC = () => {
             />
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-6">
+          <div className="card-container">
             {memoizedEmployees?.map((employee) => (
               <EmployeeCard
                 key={employee._id}

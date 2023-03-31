@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import Modal from "react-modal";
 
 import "@/src/styles/globals.css";
+import "@/src/styles/employee.css";
 import "react-toastify/dist/ReactToastify.css";
 
 interface RootLayoutProps extends HTMLProps<HTMLHtmlElement> {

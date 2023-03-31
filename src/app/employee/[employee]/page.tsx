@@ -18,9 +18,6 @@ import { employeeFormSchema } from "@/src/utils/validationSchema";
 // store
 import useStore from "@/src/store";
 
-// styles
-import "@/src/styles/employee.css";
-
 const EditEmployee: FC<IEmployeeEditProps> = ({
   params: { employee: employeeId },
 }) => {

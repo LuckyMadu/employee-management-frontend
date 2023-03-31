@@ -45,3 +45,15 @@
 .footer-btn {
   @apply flex justify-center items-center w-auto mt-20;
 }
+
+.layout-container {
+  @apply flex mb-10 justify-end;
+}
+
+.table-container {
+  @apply flex justify-center;
+}
+
+.card-container {
+  @apply grid grid-cols-3 gap-6 mb-2;
+}

@@ -18,9 +18,6 @@ import { employeeFormSchema } from "@/src/utils/validationSchema";
 // store
 import useStore from "@/src/store";
 
-// styles
-import "@/src/styles/employee.css";
-
 const AddEmployee: FC = () => {
   const { isLoading, addEmployee, setIsLoading } = useStore();
 
