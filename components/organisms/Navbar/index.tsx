@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 mb-20 py-4" data-theme="night">
+    <div className="navbar bg-base-100 mb-10 py-4" data-theme="night">
       <div className="navbar-start">
         <Link href="/" className="text-xl text-white font-semibold">
           | Employee Manager |

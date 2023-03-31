@@ -2,10 +2,14 @@
 
 import { FC } from "react";
 import Link from "next/link";
+import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
+
+// components
 import { Image } from "@/components/atoms";
+
+// utils
 import { COLORS } from "@/constants";
 import { IEmployeeProps } from "@/types";
-import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 
 export const EmployeeCard: FC<IEmployeeProps> = ({
   item,

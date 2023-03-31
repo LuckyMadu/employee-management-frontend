@@ -4,7 +4,7 @@ import { FC, useEffect, useMemo, useState } from "react";
 
 // components
 import { Loader } from "@/components/atoms";
-import { ConfirmationModal } from "@/components/molecules";
+import { ConfirmationModal, LayoutSwitch } from "@/components/molecules";
 import { Navbar, EmployeeCard } from "@/components/organisms";
 
 // store
@@ -43,6 +43,9 @@ const EmployeeList: FC = () => {
     <>
       <Navbar />
       <div className="container mx-auto">
+        <div className="flex mb-10 justify-end">
+          <LayoutSwitch />
+        </div>
         {selectedEmployee && (
           <ConfirmationModal
             modalIsOpen={modalIsOpen}
