@@ -1,18 +1,16 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FC, FormEvent, useState } from "react";
+import useStore from "@/src/store";
 
-export const SearchInput = () => {
+export const SearchInput: FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const router = useRouter();
+
+  const { setEmployees, setSearchedResults } = useStore();
 
   const handleOnSearch = (event: FormEvent) => {
     event.preventDefault();
-
-    const encodedSearchQuery = encodeURIComponent(searchQuery);
-    router.push(`/employee/search?q=${encodedSearchQuery}`);
-    console.log("searchQuery", encodedSearchQuery);
+    setSearchedResults(searchQuery);
   };
 
   return (
@@ -20,7 +18,11 @@ export const SearchInput = () => {
       <div className="form-control">
         <input
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => {
+            if (searchQuery.length < 1) setEmployees();
+            setSearchQuery(e.target.value);
+            setSearchedResults(e.target.value);
+          }}
           type="text"
           placeholder="Search"
           className="input input-bordered"

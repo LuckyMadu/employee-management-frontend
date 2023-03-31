@@ -67,3 +67,20 @@ export const deleteEmployee = async (employeeId: string) => {
     console.log("delete employee error", error);
   }
 };
+
+export const fetchSearchedEmployees = async (query: string) => {
+  try {
+    const { data } = await API.get<BaseResponse>(
+      `${process.env.NEXT_PUBLIC_BASE_URL}${API_ENDPOINTS.SEARCH_EMPLOYEE}`,
+      {
+        params: {
+          query,
+        },
+      }
+    );
+    return data;
+  } catch (error: any) {
+    makeToast(error.data.error.message, "error");
+    console.log("search employee error", error);
+  }
+};

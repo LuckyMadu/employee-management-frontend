@@ -6,6 +6,7 @@ interface EmployeeStoreState {
   isLoading: boolean;
   error: string | null;
   setEmployees: () => Promise<void>;
+  setSearchedResults: (query: string) => Promise<void>;
   addEmployee: (employee: IEmployee) => void;
   updateEmployee: (employeeId: string, employee: IEmployee) => void;
   removeEmployee: (employeeId: string) => Promise<void>;

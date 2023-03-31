@@ -5,4 +5,5 @@ export const API_ENDPOINTS = {
   GET_SINGLE_EMPLOYEE: "/employee/",
   UPDATE_EMPLOYEE: "/employee/",
   DELETE_EMPLOYEE: "/employee/",
+  SEARCH_EMPLOYEE: "/employee/search",
 };

@@ -11,6 +11,7 @@ import {
   fetchSingleEmployee,
   updateEmployee,
   deleteEmployee,
+  fetchSearchedEmployees,
 } from "@/src/services/employeeService";
 
 const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
@@ -38,6 +39,14 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
   },
   removeEmployee: async (employeeId: string) => {
     await deleteEmployee(employeeId);
+  },
+  setSearchedResults: async (query: string) => {
+    set({ isLoading: true });
+    const data = await fetchSearchedEmployees(query);
+    set(() => ({
+      employees: (data as BaseEmployeeResponse).data.data,
+      isLoading: false,
+    }));
   },
   setIsLoading: (isLoading: boolean) => set(() => ({ isLoading })),
   setError: (error: string | null) => set(() => ({ error })),

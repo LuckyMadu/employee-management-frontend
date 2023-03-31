@@ -1,7 +1,8 @@
 import { SearchInput } from "@/src/components/molecules";
 import Link from "next/link";
+import { FC } from "react";
 
-export const Navbar = () => {
+export const Navbar: FC = () => {
   return (
     <div className="navbar bg-base-100 mb-10 py-4" data-theme="night">
       <div className="navbar-start">
