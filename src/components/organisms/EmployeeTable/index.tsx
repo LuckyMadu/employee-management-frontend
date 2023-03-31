@@ -22,58 +22,60 @@ export const EmployeeTable: FC<IEmployeeTableProps> = ({
 }) => {
   return (
     <div className="rounded-t-xl overflow-hidden p-10">
-      <table className="table-auto">
-        <thead className="bg-gray-200">
-          <tr>
-            {TABLE_TITLES.map((item) => {
+      {employees.length > 0 ? (
+        <table className="table-auto">
+          <thead className="bg-gray-200">
+            <tr>
+              {TABLE_TITLES.map((item) => {
+                return (
+                  <th className="px-4 py-2" key={item.key}>
+                    {item.value}
+                  </th>
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {employees?.map((employee) => {
+              const { _id, photo, firstName, lastName, email, phone, gender } =
+                employee;
               return (
-                <th className="px-4 py-2" key={item.key}>
-                  {item.value}
-                </th>
+                <tr key={_id}>
+                  <TableRow>
+                    <Image
+                      src={photo ? photo : DEFAULT_PROFILE_IMAGE_URL}
+                      className="w-20 h-20"
+                      alt="profile image"
+                    />
+                  </TableRow>
+                  <TableRow text={firstName} />
+                  <TableRow text={lastName} />
+                  <TableRow text={email} />
+                  <TableRow text={phone} />
+                  <TableRow text={gender} />
+                  <TableRow>
+                    <div className="flex">
+                      <Link href={`/employee/${_id}`}>
+                        <RiEditBoxLine size={26} color={COLORS.BLUE} />
+                      </Link>
+                      <RiDeleteBin5Fill
+                        size={26}
+                        color={COLORS.RED}
+                        onClick={() => {
+                          setSelectedEmployee(employee);
+                          setModalIsOpen(true);
+                        }}
+                      />
+                    </div>
+                  </TableRow>
+                </tr>
               );
             })}
-          </tr>
-        </thead>
-        <tbody>
-          {employees?.map((employee) => {
-            return (
-              <tr>
-                <TableRow>
-                  <Image
-                    src={
-                      employee.photo
-                        ? employee.photo
-                        : DEFAULT_PROFILE_IMAGE_URL
-                    }
-                    className="w-20 h-20"
-                    alt="profile image"
-                  />
-                </TableRow>
-                <TableRow text={employee.firstName} />
-                <TableRow text={employee.lastName} />
-                <TableRow text={employee.email} />
-                <TableRow text={employee.phone} />
-                <TableRow text={employee.gender} />
-                <TableRow>
-                  <div className="flex">
-                    <Link href={`/employee/${employee._id}`}>
-                      <RiEditBoxLine size={26} color={COLORS.BLUE} />
-                    </Link>
-                    <RiDeleteBin5Fill
-                      size={26}
-                      color={COLORS.RED}
-                      onClick={() => {
-                        setSelectedEmployee(employee);
-                        setModalIsOpen(true);
-                      }}
-                    />
-                  </div>
-                </TableRow>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      ) : (
+        <p>No employees found.</p>
+      )}
     </div>
   );
 };

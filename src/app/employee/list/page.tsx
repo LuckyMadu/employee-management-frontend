@@ -80,14 +80,18 @@ const EmployeeList: FC = () => {
           </div>
         ) : (
           <div className="card-container">
-            {memoizedEmployees?.map((employee) => (
-              <EmployeeCard
-                key={employee._id}
-                item={employee}
-                setModalIsOpen={setModalIsOpen}
-                setSelectedEmployee={setSelectedEmployee}
-              />
-            ))}
+            {memoizedEmployees.length > 0 ? (
+              memoizedEmployees?.map((employee) => (
+                <EmployeeCard
+                  key={employee._id}
+                  item={employee}
+                  setModalIsOpen={setModalIsOpen}
+                  setSelectedEmployee={setSelectedEmployee}
+                />
+              ))
+            ) : (
+              <p className="flex justify-center">No employees found.</p>
+            )}
           </div>
         )}
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent, useCallback, useEffect, useState } from "react";
+import debounce from "lodash.debounce";
 import useStore from "@/src/store";
 
 export const SearchInput: FC = () => {
@@ -8,21 +9,32 @@ export const SearchInput: FC = () => {
 
   const { setEmployees, setSearchedResults } = useStore();
 
-  const handleOnSearch = (event: FormEvent) => {
+  const debouncedSearch = useCallback(
+    debounce((query: string) => {
+      if (query.length > 0) {
+        setSearchedResults(query);
+      } else {
+        setEmployees();
+      }
+    }, 500),
+    []
+  );
+
+  useEffect(() => {
+    debouncedSearch(searchQuery);
+  }, [searchQuery, debouncedSearch]);
+
+  const handleOnSearch = (event: FormEvent<HTMLInputElement>) => {
     event.preventDefault();
-    setSearchedResults(searchQuery);
+    setSearchQuery(event.currentTarget.value);
   };
 
   return (
-    <form onSubmit={handleOnSearch}>
+    <form>
       <div className="form-control">
         <input
           value={searchQuery}
-          onChange={(e) => {
-            if (searchQuery.length < 1) setEmployees();
-            setSearchQuery(e.target.value);
-            setSearchedResults(e.target.value);
-          }}
+          onChange={handleOnSearch}
           type="text"
           placeholder="Search"
           className="input input-bordered"
