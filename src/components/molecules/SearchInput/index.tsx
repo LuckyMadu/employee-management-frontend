@@ -11,7 +11,7 @@ export const SearchInput = () => {
     event.preventDefault();
 
     const encodedSearchQuery = encodeURIComponent(searchQuery);
-    router.push(`/employee/list?q=${encodedSearchQuery}`);
+    router.push(`/employee/search?q=${encodedSearchQuery}`);
     console.log("searchQuery", encodedSearchQuery);
   };
 

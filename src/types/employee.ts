@@ -78,4 +78,6 @@ export interface ILayoutChangeProps {
 }
 export interface IEmployeeTableProps {
   employees: ISelectedEmployee[];
+  setModalIsOpen: (value: boolean) => void;
+  setSelectedEmployee: (value: ISelectedEmployee) => void;
 }

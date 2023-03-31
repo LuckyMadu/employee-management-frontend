@@ -7,10 +7,15 @@ import Link from "next/link";
 import { Image, TableRow } from "@/src/components/atoms";
 
 // utils
-import { TABLE_TITLES } from "@/src/constants";
+import { COLORS, TABLE_TITLES } from "@/src/constants";
 import { IEmployeeTableProps } from "@/src/types";
+import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 
-export const EmployeeTable: FC<IEmployeeTableProps> = ({ employees }) => {
+export const EmployeeTable: FC<IEmployeeTableProps> = ({
+  employees,
+  setSelectedEmployee,
+  setModalIsOpen,
+}) => {
   return (
     <div className="rounded-t-xl overflow-hidden p-10">
       <table className="table-auto">
@@ -45,7 +50,21 @@ export const EmployeeTable: FC<IEmployeeTableProps> = ({ employees }) => {
                 <TableRow text={employee.email} />
                 <TableRow text={employee.phone} />
                 <TableRow text={employee.gender} />
-                <TableRow text={employee.gender} />
+                <TableRow>
+                  <div className="flex">
+                    <Link href={`/employee/${employee._id}`}>
+                      <RiEditBoxLine size={26} color={COLORS.BLUE} />
+                    </Link>
+                    <RiDeleteBin5Fill
+                      size={26}
+                      color={COLORS.RED}
+                      onClick={() => {
+                        setSelectedEmployee(employee);
+                        setModalIsOpen(true);
+                      }}
+                    />
+                  </div>
+                </TableRow>
               </tr>
             );
           })}
