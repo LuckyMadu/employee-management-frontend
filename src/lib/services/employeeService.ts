@@ -1,4 +1,4 @@
-import { API_ENDPOINTS } from "@/src/constants";
+import { API_ENDPOINTS } from "@/src/lib/constants";
 import { BaseResponse, IEmployee } from "@/src/types";
 import API from "@/src/utils/axiosInterceptor";
 import makeToast from "@/src/utils/toaster";

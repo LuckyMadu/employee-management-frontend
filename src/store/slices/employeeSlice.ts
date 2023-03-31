@@ -12,7 +12,7 @@ import {
   updateEmployee,
   deleteEmployee,
   fetchSearchedEmployees,
-} from "@/src/services/employeeService";
+} from "@/src/lib/services/employeeService";
 
 const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
   employees: [],

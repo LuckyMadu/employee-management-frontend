@@ -1,5 +1,5 @@
-import { ERROR_MESSAGE } from "@/src/constants";
 import * as Yup from "yup";
+import { ERROR_MESSAGE } from "@/src/lib/constants";
 
 export const employeeFormSchema = Yup.object().shape({
   firstName: Yup.string()

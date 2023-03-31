@@ -2,7 +2,7 @@ import { FC } from "react";
 import Modal from "react-modal";
 
 import { IModalProps } from "@/src/types";
-import { MODAL_STYLES } from "@/src/constants";
+import { MODAL_STYLES } from "@/src/lib/constants";
 
 export const ConfirmationModal: FC<IModalProps> = ({
   modalIsOpen,

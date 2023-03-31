@@ -11,7 +11,7 @@ import {
   COLORS,
   DEFAULT_PROFILE_IMAGE_URL,
   TABLE_TITLES,
-} from "@/src/constants";
+} from "@/src/lib/constants";
 import { IEmployeeTableProps } from "@/src/types";
 import { RiDeleteBin5Fill, RiEditBoxLine } from "react-icons/ri";
 

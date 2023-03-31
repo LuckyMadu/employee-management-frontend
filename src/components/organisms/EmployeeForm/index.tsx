@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Button, Dropdown, Input } from "@/src/components/atoms";
-import { GENDER } from "@/src/constants";
+import { GENDER } from "@/src/lib/constants";
 import { IEmployeeFormProps } from "@/src/types";
 
 export const EmployeeForm: FC<IEmployeeFormProps> = ({
