@@ -72,3 +72,7 @@ export interface IModalProps {
   setModalIsOpen: (value: boolean) => void;
   handleRemoveEmployee: () => void;
 }
+export interface ILayoutChangeProps {
+  isTableViewOn: boolean;
+  handleLayoutChange: () => void;
+}

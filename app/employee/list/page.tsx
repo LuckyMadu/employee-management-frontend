@@ -1,11 +1,11 @@
 "use client";
 
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 
 // components
 import { Loader } from "@/components/atoms";
 import { ConfirmationModal, LayoutSwitch } from "@/components/molecules";
-import { Navbar, EmployeeCard } from "@/components/organisms";
+import { Navbar, EmployeeCard, EmployeeTable } from "@/components/organisms";
 
 // store
 import useStore from "@/store";
@@ -13,7 +13,8 @@ import useStore from "@/store";
 import { ISelectedEmployee } from "@/types";
 
 const EmployeeList: FC = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [isTableViewOn, setIsTableViewOn] = useState<boolean>(false);
   const [selectedEmployee, setSelectedEmployee] = useState<ISelectedEmployee>();
 
   const { employees, isLoading, setEmployees, removeEmployee } = useStore();
@@ -27,24 +28,33 @@ const EmployeeList: FC = () => {
     fetchEmployees();
   }, []);
 
-  const handleRemoveEmployee = async () => {
+  const handleRemoveEmployee = useCallback(async () => {
     if (selectedEmployee?._id) {
       try {
         await removeEmployee(selectedEmployee._id);
-        await setEmployees();
+        setEmployees();
         setModalIsOpen(false);
       } catch (error) {
-        console.log("employee fetching failed after remove", error);
+        console.error("employee fetching failed after remove", error);
       }
     }
-  };
+  }, [removeEmployee, selectedEmployee, setEmployees]);
+
+  const handleLayoutChange = useCallback(() => {
+    setIsTableViewOn((prevState) => !prevState);
+  }, [isTableViewOn]);
 
   return (
     <>
+      {/* Header */}
       <Navbar />
+
       <div className="container mx-auto">
         <div className="flex mb-10 justify-end">
-          <LayoutSwitch />
+          <LayoutSwitch
+            isTableViewOn={isTableViewOn}
+            handleLayoutChange={handleLayoutChange}
+          />
         </div>
         {selectedEmployee && (
           <ConfirmationModal
@@ -56,6 +66,8 @@ const EmployeeList: FC = () => {
         )}
         {isLoading ? (
           <Loader />
+        ) : isTableViewOn ? (
+          <EmployeeTable />
         ) : (
           <div className="grid grid-cols-3 gap-6">
             {memoizedEmployees?.map((employee) => (

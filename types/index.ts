@@ -8,5 +8,6 @@ export type {
   IEmployeeFormProps,
   IModalProps,
   ISelectedEmployee,
+  ILayoutChangeProps,
 } from "./employee";
 export type { BaseResponse, BaseEmployeeResponse } from "./responses";
