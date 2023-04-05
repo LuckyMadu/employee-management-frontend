@@ -1,0 +1,59 @@
+.header-title {
+  @apply text-2xl text-center uppercase font-semibold mt-4 mb-20;
+}
+
+.main-container {
+  @apply flex justify-center items-center;
+}
+
+.form-container {
+  @apply w-full max-w-2xl bg-white shadow-md rounded px-8 pb-8 mb-4 pt-4;
+}
+
+.grid-container {
+  @apply flex flex-wrap -mx-3 mb-6;
+}
+
+.input-container {
+  @apply w-full md:w-1/2 px-3;
+}
+
+.input-bar {
+  @apply appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white;
+}
+
+.input-label {
+  @apply block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2;
+}
+
+.mainBtn {
+  @apply inline-block mr-3 px-6 py-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+}
+
+.dropdown-label {
+  @apply block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2;
+}
+
+.dropdown-select {
+  @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+
+.dropdown-down-arrow {
+  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700;
+}
+
+.footer-btn {
+  @apply flex justify-center items-center w-auto mt-20;
+}
+
+.layout-container {
+  @apply flex mb-10 justify-end;
+}
+
+.table-container {
+  @apply flex justify-center;
+}
+
+.card-container {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-2;
+}
