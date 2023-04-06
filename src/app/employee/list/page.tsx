@@ -27,11 +27,8 @@ const EmployeeList: FC = () => {
   const memoizedEmployees = useMemo(() => employees, [employees]);
 
   useEffect(() => {
-    const fetchEmployees = async () => {
-      await setEmployees();
-    };
-    fetchEmployees();
-  }, []);
+    setEmployees();
+  }, [setEmployees]);
 
   /**
    * Delete the selected employee
