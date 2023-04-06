@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddEmployee Employee adding renders correctly 1`] = `
+[
+  <h1
+    className="header-title"
+  >
+    Add Employee
+  </h1>,
+  <div
+    className="main-container"
+  >
+    <div
+      className="form-container"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="grid-container"
+        >
+          <div
+            className="input-container"
+          >
+            <div>
+              <label
+                className="input-label"
+                htmlFor="firstName"
+              >
+                First Name
+              </label>
+              <input
+                className="input-bar"
+                id="firstName"
+                name="firstName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Lahiru"
+                type="text"
+              />
+              <span
+                className="text-red-800"
+              />
+            </div>
+          </div>
+          <div
+            className="input-container"
+          >
+            <div>
+              <label
+                className="input-label"
+                htmlFor="lastName"
+              >
+                Last Name
+              </label>
+              <input
+                className="input-bar"
+                id="lastName"
+                name="lastName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Amaratunga"
+                type="text"
+              />
+              <span
+                className="text-red-800"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="grid-container"
+        >
+          <div
+            className="w-full px-3"
+          >
+            <div>
+              <label
+                className="input-label"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                className="input-bar"
+                id="email"
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="lahirua@swivelgroup.com.au"
+                type="email"
+              />
+              <span
+                className="text-red-800"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="grid-container"
+        >
+          <div
+            className="input-container"
+          >
+            <div>
+              <label
+                className="input-label"
+                htmlFor="phone"
+              >
+                Phone Number
+              </label>
+              <input
+                className="input-bar"
+                id="phone"
+                name="phone"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="+94 712 130 466"
+                type="text"
+              />
+              <span
+                className="text-red-800"
+              />
+            </div>
+          </div>
+          <div
+            className="input-container"
+          >
+            <label
+              className="dropdown-label "
+              htmlFor="gender"
+            >
+              Gender
+            </label>
+            <div
+              className="relative"
+            >
+              <select
+                className="dropdown-select"
+                id="gender"
+                name="gender"
+                onBlur={[Function]}
+                onChange={[Function]}
+              >
+                <option
+                  value="M"
+                >
+                  Male
+                </option>
+                <option
+                  value="F"
+                >
+                  Female
+                </option>
+              </select>
+              <div
+                className="dropdown-down-arrow"
+              >
+                <svg
+                  className="fill-current h-4 w-4"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="relative py-6 mb-6"
+        >
+          <button
+            className="btn px-10 absolute right-0"
+            type="submit"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="footer-btn"
+  >
+    <a
+      href="/employee/list"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      <button
+        className="btn btn-info"
+        type="button"
+      >
+        Go back to employee list
+      </button>
+    </a>
+  </div>,
+]
+`;
