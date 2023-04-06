@@ -26,7 +26,7 @@ NEXT_PUBLIC_BASE_URL=https://api.example.com
 To use the variables in your code, you can use the process.env object. For example:
 
 ```
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_BASE_URL;
 ```
 
 ## Development
