@@ -19,7 +19,8 @@ npm install
 
 This project uses an .env file to handle environment variables. You can create an .env file in the root of the project and add your variables to it. For example:
 
-```NEXT_PUBLIC_BASE_URL=https://api.example.com
+```
+NEXT_PUBLIC_BASE_URL=https://api.example.com
 
 ```
 
