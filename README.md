@@ -5,7 +5,7 @@ This is a frontend application built using Next.js. It also uses an .env file to
 To get started with this project, clone the repository to your local machine:
 
 ```
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/LuckyMadu/employee-management-frontend.git
 ```
 
 After cloning the repository, navigate to the project directory and install the dependencies:
@@ -21,7 +21,6 @@ This project uses an .env file to handle environment variables. You can create a
 
 ```
 NEXT_PUBLIC_BASE_URL=https://api.example.com
-
 ```
 
 To use the variables in your code, you can use the process.env object. For example:
