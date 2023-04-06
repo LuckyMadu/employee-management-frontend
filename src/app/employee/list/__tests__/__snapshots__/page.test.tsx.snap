@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmployeeList Employee list renders correctly 1`] = `
+[
+  <div
+    className="navbar bg-base-100 mb-10 py-4"
+    data-theme="night"
+  >
+    <div
+      className="navbar-start"
+    >
+      <a
+        className="text-xl text-white font-semibold"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        | Employee Manager |
+      </a>
+    </div>
+    <div
+      className="navbar-center"
+    >
+      <form>
+        <div
+          className="form-control"
+        >
+          <input
+            className="input input-bordered"
+            onChange={[Function]}
+            placeholder="Search"
+            type="text"
+            value=""
+          />
+        </div>
+      </form>
+    </div>
+    <div
+      className="navbar-end"
+    >
+      <a
+        className="btn mr-10"
+        href="/employee/add"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        Add Employee
+      </a>
+    </div>
+  </div>,
+  <div
+    className="container mx-auto"
+  >
+    <div
+      className="layout-container"
+    >
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          className="bi bi-card-list swap-off fill-current"
+          fill="currentColor"
+          height="40"
+          viewBox="0 0 16 16"
+          width="40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
+          />
+          <path
+            d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      className="card-container"
+    >
+      <p
+        className="flex justify-center"
+      >
+        No employees found.
+      </p>
+    </div>
+  </div>,
+]
+`;
+
+exports[`MyComponent renders correctly 1`] = `
+[
+  <div
+    className="navbar bg-base-100 mb-10 py-4"
+    data-theme="night"
+  >
+    <div
+      className="navbar-start"
+    >
+      <a
+        className="text-xl text-white font-semibold"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        | Employee Manager |
+      </a>
+    </div>
+    <div
+      className="navbar-center"
+    >
+      <form>
+        <div
+          className="form-control"
+        >
+          <input
+            className="input input-bordered"
+            onChange={[Function]}
+            placeholder="Search"
+            type="text"
+            value=""
+          />
+        </div>
+      </form>
+    </div>
+    <div
+      className="navbar-end"
+    >
+      <a
+        className="btn mr-10"
+        href="/employee/add"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        Add Employee
+      </a>
+    </div>
+  </div>,
+  <div
+    className="container mx-auto"
+  >
+    <div
+      className="layout-container"
+    >
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          className="bi bi-card-list swap-off fill-current"
+          fill="currentColor"
+          height="40"
+          viewBox="0 0 16 16"
+          width="40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
+          />
+          <path
+            d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      className="card-container"
+    >
+      <p
+        className="flex justify-center"
+      >
+        No employees found.
+      </p>
+    </div>
+  </div>,
+]
+`;
