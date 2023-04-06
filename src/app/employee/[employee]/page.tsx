@@ -43,33 +43,27 @@ const EditEmployee: FC<IEmployeeEditProps> = ({
     return () => {
       setIsLoading(false);
     };
-  }, [isLoading, setIsLoading, setSingleEmployee, employeeId]);
+  }, [employeeId, setIsLoading, setSingleEmployee]);
 
   useEffect(() => {
     if (employee) {
-      memoizedMethods.setValue("firstName", employee.firstName);
-      memoizedMethods.setValue("lastName", employee.lastName);
-      memoizedMethods.setValue("email", employee.email);
-      memoizedMethods.setValue("phone", employee.phone);
-      memoizedMethods.setValue("gender", employee.gender);
+      const { firstName, lastName, email, phone, gender } = employee;
+      memoizedMethods.setValue("firstName", firstName);
+      memoizedMethods.setValue("lastName", lastName);
+      memoizedMethods.setValue("email", email);
+      memoizedMethods.setValue("phone", phone);
+      memoizedMethods.setValue("gender", gender);
     }
   }, [employee, memoizedMethods]);
 
+  /**
+   * submit updated employee data
+   * @param {object} data Employee data
+   */
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    setIsLoading(true);
-    const { firstName, lastName, email, phone, gender } = data;
-    const payload = {
-      firstName,
-      lastName,
-      email,
-      phone,
-      gender,
-    };
-    updateEmployee(employeeId, payload);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    updateEmployee(employeeId, data);
   };
+
   return (
     <>
       <h1 className="header-title">Edit Employee</h1>
@@ -87,7 +81,7 @@ const EditEmployee: FC<IEmployeeEditProps> = ({
         </div>
       </div>
       <div className="footer-btn">
-        <Link href={"/employee/list"}>
+        <Link href="/employee/list">
           <Button className="btn btn-info">Go back to employee list</Button>
         </Link>
       </div>

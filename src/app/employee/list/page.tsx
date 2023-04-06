@@ -11,10 +11,11 @@ import {
   EmployeeTable,
 } from "@/src/components/organisms";
 
+// types
+import { ISelectedEmployee } from "@/src/types";
+
 // store
 import useStore from "@/src/store";
-
-import { ISelectedEmployee } from "@/src/types";
 
 const EmployeeList: FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
@@ -32,6 +33,9 @@ const EmployeeList: FC = () => {
     fetchEmployees();
   }, []);
 
+  /**
+   * Delete the selected employee
+   */
   const handleRemoveEmployee = useCallback(async () => {
     if (selectedEmployee?._id) {
       try {
@@ -44,6 +48,9 @@ const EmployeeList: FC = () => {
     }
   }, [removeEmployee, selectedEmployee, setEmployees]);
 
+  /**
+   * Switch layouts (Table View | Card View)
+   */
   const handleLayoutChange = useCallback(() => {
     setIsTableViewOn((prevState) => !prevState);
   }, [isTableViewOn]);

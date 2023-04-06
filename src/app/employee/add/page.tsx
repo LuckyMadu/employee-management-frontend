@@ -31,22 +31,12 @@ const AddEmployee: FC = () => {
     resolver: yupResolver(employeeFormSchema),
   });
 
+  /**
+   * submit employee data
+   * @param {object} data Employee data
+   */
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    setIsLoading(true);
-    const { firstName, lastName, email, phone, gender } = data;
-
-    const payload = {
-      firstName,
-      lastName,
-      email,
-      phone,
-      gender,
-    };
-    addEmployee(payload);
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    addEmployee(data);
   };
   return (
     <>
@@ -65,7 +55,7 @@ const AddEmployee: FC = () => {
         </div>
       </div>
       <div className="footer-btn">
-        <Link href={"/employee/list"}>
+        <Link href="/employee/list">
           <Button className="btn btn-info">Go back to employee list</Button>
         </Link>
       </div>

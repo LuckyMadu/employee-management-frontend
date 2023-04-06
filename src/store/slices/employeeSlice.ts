@@ -28,14 +28,20 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
     }));
   },
   addEmployee: async (employee: IEmployee) => {
+    set({ isLoading: true });
     await createEmployee(employee);
+    set({ isLoading: false });
   },
   setSingleEmployee: async (employeeId: string) => {
     const data = await fetchSingleEmployee(employeeId);
-    set(() => ({ employee: (data as BaseEmployeeResponse).data.data }));
+    set(() => ({
+      employee: (data as BaseEmployeeResponse).data.data,
+    }));
   },
   updateEmployee: async (employeeId: string, employee: IEmployee) => {
+    set({ isLoading: true });
     await updateEmployee(employeeId, employee);
+    set({ isLoading: false });
   },
   removeEmployee: async (employeeId: string) => {
     await deleteEmployee(employeeId);
