@@ -63,15 +63,15 @@ This will start the production server at http://localhost:3000.
 
 <table>
   <tr>
-    <td>Home-first page list</td>
-    <td>Home-second page list</td>
+    <td>Home - List View</td>
+    <td>Home - Table View</td>
   </tr>
   <tr>
     <td>
-      <img src="https://user-images.githubusercontent.com/19740478/230440211-cfda79ff-8898-4c27-b43f-6999149ba77b.png" width=600 height=400>
+      <img src="https://user-images.githubusercontent.com/19740478/230440211-cfda79ff-8898-4c27-b43f-6999149ba77b.png" width=800 height=400>
     </td>
     <td> 
-      <img src="https://user-images.githubusercontent.com/19740478/230440465-5f9a3df7-2562-49c6-8c17-fd36e33c1d58.png" width=600 height=400>         
+      <img src="https://user-images.githubusercontent.com/19740478/230440465-5f9a3df7-2562-49c6-8c17-fd36e33c1d58.png" width=800 height=400>         
     </td>
   </tr>
 </table>
