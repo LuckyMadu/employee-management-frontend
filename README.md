@@ -68,10 +68,10 @@ This will start the production server at http://localhost:3000.
   </tr>
   <tr>
     <td>
-      <img src="https://user-images.githubusercontent.com/19740478/230440211-cfda79ff-8898-4c27-b43f-6999149ba77b.png" width=800 height=400>
+      <img src="https://user-images.githubusercontent.com/19740478/230440211-cfda79ff-8898-4c27-b43f-6999149ba77b.png" width=800 height=300>
     </td>
     <td> 
-      <img src="https://user-images.githubusercontent.com/19740478/230440465-5f9a3df7-2562-49c6-8c17-fd36e33c1d58.png" width=800 height=400>         
+      <img src="https://user-images.githubusercontent.com/19740478/230440904-0940bb76-bbba-4e84-91a6-2893f7972187.png" width=800 height=300>         
     </td>
   </tr>
 </table>
