@@ -1,7 +1,5 @@
 ![employee_management_diagram drawio](https://user-images.githubusercontent.com/19740478/230542021-24d5bbf6-6afb-4247-ba8f-f5dc9842b804.png)
 
-## Getting Started
-
 <table>
   <tr>
     <td>Fronted</td>
@@ -13,8 +11,9 @@
   </tr>
 </table>
 
-Backend Repository for the solution: https://github.com/LuckyMadu/employee-management-backend
+## Getting Started
 
+Backend Repository for the solution: https://github.com/LuckyMadu/employee-management-backend
 
 This is a frontend application built using Next.js. It also uses an .env file to handle environment variables.
 
