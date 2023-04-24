@@ -23,7 +23,7 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
     set({ isLoading: true });
     const data = await fetchEmployees();
     set(() => ({
-      employees: (data as BaseEmployeeResponse).data,
+      employees: (data as BaseEmployeeResponse)?.data,
       isLoading: false,
     }));
   },
@@ -35,7 +35,7 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
   setSingleEmployee: async (employeeId: string) => {
     const data = await fetchSingleEmployee(employeeId);
     set(() => ({
-      employee: (data as BaseEmployeeResponse).data.data,
+      employee: (data as BaseEmployeeResponse)?.data?.data,
     }));
   },
   updateEmployee: async (employeeId: string, employee: IEmployee) => {
@@ -50,7 +50,7 @@ const createEmployeeSlice: StateCreator<EmployeeStoreState> = (set, get) => ({
     set({ isLoading: true });
     const data = await fetchSearchedEmployees(query);
     set(() => ({
-      employees: (data as BaseEmployeeResponse).data.data,
+      employees: (data as BaseEmployeeResponse)?.data?.data,
       isLoading: false,
     }));
   },
