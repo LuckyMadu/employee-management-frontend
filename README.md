@@ -1,6 +1,21 @@
-This is a frontend application built using Next.js. It also uses an .env file to handle environment variables.
+![employee_management_diagram drawio](https://user-images.githubusercontent.com/19740478/230542021-24d5bbf6-6afb-4247-ba8f-f5dc9842b804.png)
+
+<table>
+  <tr>
+    <td>Frontend</td>
+    <td>https://employee-management-portal.vercel.app/</td>
+  </tr>
+   <tr>
+    <td>Backend</td>
+    <td>https://employee-management-backend.vercel.app </td>
+  </tr>
+</table>
 
 ## Getting Started
+
+Backend Repository for the solution: https://github.com/LuckyMadu/employee-management-backend
+
+This is a frontend application built using Next.js. It also uses an .env file to handle environment variables.
 
 To get started with this project, clone the repository to your local machine:
 
@@ -11,7 +26,7 @@ git clone https://github.com/LuckyMadu/employee-management-frontend.git
 After cloning the repository, navigate to the project directory and install the dependencies:
 
 ```
-cd your-repo
+cd employee-management-frontend
 npm install
 ```
 
@@ -60,6 +75,22 @@ npm start
 ```
 
 This will start the production server at http://localhost:3000.
+
+<table>
+  <tr>
+    <td>Home - List View</td>
+    <td>Home - Table View</td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/19740478/230440211-cfda79ff-8898-4c27-b43f-6999149ba77b.png" width=800 height=300>
+    </td>
+    <td> 
+      <img src="https://user-images.githubusercontent.com/19740478/230440904-0940bb76-bbba-4e84-91a6-2893f7972187.png" width=800 height=300>         
+    </td>
+  </tr>
+</table>
+
 
 ## Learn More
 
