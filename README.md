@@ -54,7 +54,7 @@ npm run dev
 
 This will start the Next.js development server at [http://localhost:3000](http://localhost:3000). Any changes you make to the code will be automatically reloaded.
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file
 
 ## Building
 
